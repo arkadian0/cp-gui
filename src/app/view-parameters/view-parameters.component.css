@@ -1,0 +1,45 @@
+.flex-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.flex-container > div {
+  background-color: #f1f1f1;
+  margin: 15px;
+  width: 350px;
+  padding: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  border: 1px solid rgb(25, 53, 25);
+  transition: background-color 0.5s ease;
+}
+
+#computer-detai {
+  display: table;
+  clear: both;
+  height: 70%;
+  width: 100%;
+  margin: 0 auto;
+}
+
+#computer-detail:hover {
+  background-color: #c9c4c4;
+}
+
+#computer-image {
+  float: left;
+  width: 30%;
+  height: 55%;
+}
+
+.computer-addressess {
+  float: left;
+  width: 70%;
+  height: 55%;
+  padding: 10px;
+}
+
+.computers-info {
+  font-size: 15px;
+}

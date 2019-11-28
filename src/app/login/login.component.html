@@ -1,0 +1,9 @@
+﻿<div class="login-container">
+<form class="text-center border border-light p-5" (ngSubmit)="login()">
+  <p class="h4 mb-4">Logowanie do systemu</p>
+  <input [(ngModel)]="model.username" type="text"  class="form-control mb-4" placeholder="Login" name="username">
+  <input [(ngModel)]="model.password" type="password"  class="form-control mb-4" placeholder="Hasło" name="password">
+  <button type="submit" class="btn btn-primary">Zaloguj</button>
+  <p *ngIf='!isAuthorizated' class="unauthorizated">Niepoprawny login lub hasło</p>
+</form>
+</div>

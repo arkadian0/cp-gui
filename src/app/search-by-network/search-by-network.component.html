@@ -1,0 +1,52 @@
+<div id="all-container">
+<div id="set-network-container">
+    <form (ngSubmit)="onSubmit()">
+        
+      <p class="title"> Wprowadź adresacje do wyszukania komputerów  </p>
+    
+      <div class="form-group">
+        <label class="network-texts">Ip sieci:</label>
+        <input [(ngModel)]="networkInfo.networkIp"  type="text" placeholder="Ip sieci" class="form-control" name="networkIp">
+      </div>
+    
+      <div class="form-group">
+        <label class="network-texts">Numer kompuera od :</label>
+        <input [(ngModel)]="networkInfo.rangeFrom" type="text"  placeholder="Od" class="form-control" name="rangeFrom">
+      </div>
+    
+      <div class="form-group">
+        <label class="network-texts">Numer kompuera do :</label>
+        <input [(ngModel)]="networkInfo.rangeTo" type="text"  placeholder="Do" class="form-control" name="rangeTo">
+      </div>
+     
+      <button type="submit" class="btn btn-success">Szukaj</button>
+      </form>
+    </div>
+
+    <div class="dividing-line"></div>
+
+    <div id="view-network-container">
+      <div class="spinner-border text-primary spinner-position" *ngIf='isLoading'></div>  
+      
+      <div class = "flex-container" *ngIf="computersInNetwork != null && !isLoading">
+   
+        <div id="computer-detail"  *ngFor="let computer of computersInNetwork" (click)="viewParameters(computer.ipAddress)"> 
+          <div id="computer-image"><img id="image"src ="computer.png"></div>
+          <div class="computer-addressess" >
+            <span class="computers-info">{{computer.ipAddress}} </span><br>
+            <span class="computers-info">{{computer.computerName}} </span>
+            
+          </div> 
+          
+          <div id="info-generated">
+            <div class="not-generated" *ngIf='!computer.generationDate'>Oprogramowanie nie zainstalowane </div>
+            <div class="is-generated" *ngIf='computer.generationDate'>Oprogramowanie zainstalowane </div>
+            <div class="is-generated" *ngIf='computer.generationDate'>Data wygenerowania {{computer.generationDate}} </div>
+          </div>
+        
+        </div>
+      </div>
+
+    </div>
+
+  </div>
