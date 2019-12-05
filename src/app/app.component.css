@@ -1,7 +1,8 @@
 @import '~bootstrap/dist/css/bootstrap.min.css';
+
 #header
 {
-background-color: rgb(25, 53, 25);
+background-color: rgb(25, 25, 26);
   padding: 0px, auto;
   width: 100%;
   height:100px;

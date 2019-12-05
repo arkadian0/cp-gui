@@ -26,7 +26,7 @@ export class LoginComponent implements OnInit {
     login() {
         this.loginRestService.login(this.model.username, this.model.password).subscribe(principal => {
                 sessionStorage.setItem('token', btoa(this.model.username + ':' + this.model.password));
-                this.router.navigate(['']);
+                this.router.navigate(['/search-network']);
             },
             error => {
                 if (error.status === 401) {

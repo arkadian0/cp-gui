@@ -19,7 +19,7 @@
         <input [(ngModel)]="networkInfo.rangeTo" type="text"  placeholder="Do" class="form-control" name="rangeTo">
       </div>
      
-      <button type="submit" class="btn btn-success">Szukaj</button>
+      <button type="submit" class="btn btn-dark">Szukaj</button>
       </form>
     </div>
 
@@ -29,9 +29,9 @@
       <div class="spinner-border text-primary spinner-position" *ngIf='isLoading'></div>  
       
       <div class = "flex-container" *ngIf="computersInNetwork != null && !isLoading">
-   
+        
         <div id="computer-detail"  *ngFor="let computer of computersInNetwork" (click)="viewParameters(computer.ipAddress)"> 
-          <div id="computer-image"><img id="image"src ="computer.png"></div>
+          <div id="computer-image"><img id="image" src ="/assets/images/laptop.png"></div>
           <div class="computer-addressess" >
             <span class="computers-info">{{computer.ipAddress}} </span><br>
             <span class="computers-info">{{computer.computerName}} </span>
@@ -40,8 +40,11 @@
           
           <div id="info-generated">
             <div class="not-generated" *ngIf='!computer.generationDate'>Oprogramowanie nie zainstalowane </div>
-            <div class="is-generated" *ngIf='computer.generationDate'>Oprogramowanie zainstalowane </div>
-            <div class="is-generated" *ngIf='computer.generationDate'>Data wygenerowania {{computer.generationDate}} </div>
+            <div class="is-generated" *ngIf='computer.generationDate'>
+              Oprogramowanie zainstalowane <br>
+              Data wygenerowania {{computer.generationDate}}
+            </div>
+            <div class="is-generated" *ngIf='computer.generationDate'></div> 
           </div>
         
         </div>

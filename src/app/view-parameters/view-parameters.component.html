@@ -1,8 +1,115 @@
 <div class="flex-container">
-  <div id="computer-detail">
-    <div id="computer-image"><img id="image" src="computer.png" /></div>
+  
+  <div id="computer-detail" (click)="viewOperatingSystemsDetails(ipAddress)">
+    <div id="computer-image"><img id="image" src="/assets/images/operating-system.png" /></div>
     <div class="computer-addressess">
       <span class="computers-info">System operacyjny </span><br />
     </div>
   </div>
+  
+  <div id="computer-detail" (click)="viewBiosDetails(ipAddress)">
+    <div id="computer-image"><img id="image" src="/assets/images/bios.png" /></div>
+    <div class="computer-addressess">
+      <span class="computers-info">Bios</span><br />
+    </div>
+  </div>
+  
+  <div id="computer-detail" (click)="viewProcessorsDetails(ipAddress)">
+    <div id="computer-image"><img id="image" src="/assets/images/cpu.png" /></div>
+    <div class="computer-addressess">
+      <span class="computers-info">Procesor</span><br />
+    </div>
+  </div>
+  
+  <div id="computer-detail" (click)="viewInternalMemoriesDetails(ipAddress)">
+    <div id="computer-image"><img id="image" src="/assets/images/ram.png" /></div>
+    <div class="computer-addressess">
+      <span class="computers-info">Pamięć Ram</span><br />
+    </div>
+  </div>
+
+  <div id="computer-detail" (click)="viewHardDisksDetails(ipAddress)">
+    <div id="computer-image"><img id="image" src="/assets/images/hard-drive.png" /></div>
+    <div class="computer-addressess">
+      <span class="computers-info">Dyski twarde</span><br />
+    </div>
+  </div>
+  
+  <div id="computer-detail" (click)="viewGraphicsDetails(ipAddress)">
+    <div id="computer-image"><img id="image" src="/assets/images/gpu.png" /></div>
+    <div class="computer-addressess">
+      <span class="computers-info">Grafika</span><br />
+    </div>
+  </div>
+
+  <div id="computer-detail" (click)="viewNetworksDetails(ipAddress)">
+    <div id="computer-image"><img id="image" src="/assets/images/network-card.png" /></div>
+    <div class="computer-addressess">
+      <span class="computers-info">Sieć</span><br />
+    </div>
+  </div>
+
+  <div id="computer-detail" (click)="viewSoundsDetails(ipAddress)">
+    <div id="computer-image"><img id="image" src="/assets/images/sound-device.png" /></div>
+    <div class="computer-addressess">
+      <span class="computers-info">Dzwięk</span><br />
+    </div>
+  </div>
+
+  <div id="computer-detail" (click)="viewUsersDetails(ipAddress)">
+    <div id="computer-image"><img id="image" src="/assets/images/users.png" /></div>
+    <div class="computer-addressess">
+      <span class="computers-info">Użytkownicy</span><br />
+    </div>
+  </div>
+
+  <div id="computer-detail" (click)="viewInstalledApplicationsDetails(ipAddress)">
+    <div id="computer-image"><img id="image" src="/assets/images/applications.png" /></div>
+    <div class="computer-addressess">
+      <span class="computers-info">Zainstalowane aplikacje</span><br />
+    </div>
+  </div>
+
+  <div id="computer-detail" (click)="viewUsbDevicesDetails(ipAddress)">
+    <div id="computer-image"><img id="image" src="/assets/images/usb.png" /></div>
+    <div class="computer-addressess">
+      <span class="computers-info">Urządzenia USB</span><br />
+    </div>
+  </div>
+
+  <div id="computer-detail" (click)="viewInputDevicesDetails(ipAddress)">
+    <div id="computer-image"><img id="image" src="/assets/images/input-devices.png" /></div>
+    <div class="computer-addressess">
+      <span class="computers-info">Urządzenia wejścia</span><br />
+    </div>
+  </div>
+
+  <div id="computer-detail" (click)="viewPs2DevicesDetails(ipAddress)">
+    <div id="computer-image"><img id="image" src="/assets/images/ps2.png" /></div>
+    <div class="computer-addressess">
+      <span class="computers-info">Urządzenia PS2</span><br />
+    </div>
+  </div>
+
+  <div id="computer-detail" (click)="viewCaptureDevicesDetails(ipAddress)">
+    <div id="computer-image"><img id="image" src="/assets/images/capture-device.png" /></div>
+    <div class="computer-addressess">
+      <span class="computers-info">Urządzenia Przechwytujące</span><br />
+    </div>
+  </div>
+
+  <div id="computer-detail" (click)="viewVideoDevicesDetails(ipAddress)">
+    <div id="computer-image"><img id="image" src="/assets/images/video-device.png" /></div>
+    <div class="computer-addressess">
+      <span class="computers-info">Urządzenia Wideo</span><br />
+    </div>
+  </div>
+
+  <div id="computer-detail" (click)="viewSystemDevicesDetails(ipAddress)">
+    <div id="computer-image"><img id="image" src="/assets/images/system-devices.png" /></div>
+    <div class="computer-addressess">
+      <span class="computers-info">Urządzenia systemowe</span><br />
+    </div>
+  </div>
+
 </div>

@@ -46,8 +46,7 @@ export class SearchByNetworkComponent implements OnInit {
     this.networkInfo.rangeTo = storageNetworkInfo.rangeTo;
   }
 
-  viewParameters(ipAddress: string)
-  {
+  viewParameters(ipAddress: string) {
     this.router.navigate(['/view-parameters', ipAddress]);
   }
 

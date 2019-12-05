@@ -1,0 +1,112 @@
+<table
+  class="table table-dark"
+  *ngFor="let parameter of networksParameters"
+>
+  <thead>
+    <tr>
+        <th colspan="3" scope="colgroup" class="table-tittle"><img id="image" src="/assets/images/operating-system.png"/>System operacyjny</th>
+    </tr>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Parametr</th>
+      <th scope="col">Wartość</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">1</th>
+      <td>Typ adaptera</td>
+      <td>{{ parameter.adapterType }}</td>
+    </tr>
+    <tr>
+      <th scope="row">2</th>
+      <td>Nazwa</td>
+      <td>{{ parameter.name }}</td>
+    </tr>
+    <tr>
+      <th scope="row">3</th>
+      <td>Opis</td>
+      <td>{{ parameter.description }}</td>
+    </tr>
+    <tr>
+      <th scope="row">4</th>
+      <td>Podpis</td>
+      <td>{{ parameter.caption }}</td>
+    </tr>
+    <tr>
+      <th scope="row">5</th>
+      <td>Zainstalowane</td>
+      <td>{{ parameter.installed }}</td>
+    </tr>
+    <tr>
+      <th scope="row">6</th>
+      <td>Data instalacji</td>
+      <td>{{ parameter.installDate }}</td>
+    </tr>
+    <tr>
+      <th scope="row">7</th>
+      <td>Producent</td>
+      <td>{{ parameter.manufacturer }}</td>
+    </tr>
+    <tr>
+      <th scope="row">8</th>
+      <td>Id PNP urządzenia</td>
+      <td>{{ parameter.pnpDeviceId }}</td>
+    </tr>
+    <tr>
+      <th scope="row">9</th>
+      <td>Adres MAC</td>
+      <td>{{ parameter.macAddress }}</td>
+    </tr>
+    <tr>
+      <th scope="row">10</th>
+      <td>Ostatni status błędu</td>
+      <td>{{ parameter.lastErrorCode }}</td>
+    </tr>
+    <tr>
+      <th scope="row">11</th>
+      <td>Maksymalna prędkość</td>
+      <td>{{ parameter.maxSpeed }}</td>
+    </tr>
+    <tr>
+      <th scope="row">12</th>
+      <td>Obsługiwanie zarządzania energią</td>
+      <td>{{ parameter.powerManagementSupported }}</td>
+    </tr>
+    <tr>
+      <th scope="row">13</th>
+      <td>Prędkość</td>
+      <td>{{ parameter.speed }}</td>
+    </tr>
+    <tr>
+      <th scope="row">14</th>
+      <td>Status</td>
+      <td>{{ parameter.status }}</td>
+    </tr>
+    <tr>
+      <th scope="row">15</th>
+      <td>Włączona sieć</td>
+      <td>{{ parameter.netEnabled }}</td>
+    </tr>
+    <tr>
+      <th scope="row">16</th>
+      <td>Status połączenia sieci</td>
+      <td>{{ parameter.netConnectionStatus }}</td>
+    </tr>
+    <tr>
+      <th scope="row">17</th>
+      <td>Adres sieci</td>
+      <td>{{ parameter.networkAddresses }}</td>
+    </tr>
+    <tr>
+      <th scope="row">18</th>
+      <td>Adres stały</td>
+      <td>{{ parameter.permanentAddress }}</td>
+    </tr>
+    <tr>
+      <th scope="row">19</th>
+      <td>Nazwa produktu</td>
+      <td>{{ parameter.productName }}</td>
+    </tr>
+  </tbody>
+</table>

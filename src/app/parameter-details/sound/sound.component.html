@@ -1,0 +1,62 @@
+<table
+  class="table table-dark"
+  *ngFor="let parameter of soundsDevicesParameters"
+>
+  <thead>
+    <tr>
+        <th colspan="3" scope="colgroup" class="table-tittle"><img id="image" src="/assets/images/operating-system.png"/>System operacyjny</th>
+    </tr>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Parametr</th>
+      <th scope="col">Wartość</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">1</th>
+      <td>Opis</td>
+      <td>{{ parameter.description }}</td>
+    </tr>
+    <tr>
+      <th scope="row">2</th>
+      <td>Id sprzętu</td>
+      <td>{{ parameter.hardwareId }}</td>
+    </tr>
+    <tr>
+      <th scope="row">3</th>
+      <td>Id producenta</td>
+      <td>{{ parameter.manufacturerId }}</td>
+    </tr>
+    <tr>
+      <th scope="row">4</th>
+      <td>Id produktu</td>
+      <td>{{ parameter.productId }}</td>
+    </tr>
+    <tr>
+      <th scope="row">5</th>
+      <td>Typ</td>
+      <td>{{ parameter.type }}</td>
+    </tr>
+    <tr>
+      <th scope="row">6</th>
+      <td>Nazwa sterownika</td>
+      <td>{{ parameter.driverName }}</td>
+    </tr>
+    <tr>
+      <th scope="row">7</th>
+      <td>Wersja sterownika</td>
+      <td>{{ parameter.driverVersion }}</td>
+    </tr>
+    <tr>
+      <th scope="row">8</th>
+      <td>Data sterownika</td>
+      <td>{{ parameter.driverDate }}</td>
+    </tr>
+    <tr>
+      <th scope="row">9</th>
+      <td>Dostawca sterownika</td>
+      <td>{{ parameter.driverProvider }}</td>
+    </tr>
+  </tbody>
+</table>

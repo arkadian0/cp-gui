@@ -1,0 +1,102 @@
+<table
+  class="table table-dark"
+  *ngFor="let parameter of operatingSystemParameters"
+>
+  <thead>
+    <tr>
+        <th colspan="3" scope="colgroup" class="table-tittle"><img id="image" src="/assets/images/operating-system.png"/>System operacyjny</th>
+    </tr>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Parametr</th>
+      <th scope="col">Wartość</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">1</th>
+      <td>Czas</td>
+      <td>{{ parameter.time }}</td>
+    </tr>
+    <tr>
+      <th scope="row">2</th>
+      <td>Nazwa maszyny</td>
+      <td>{{ parameter.machineName }}</td>
+    </tr>
+    <tr>
+      <th scope="row">3</th>
+      <td>Id maszyny</td>
+      <td>{{ parameter.machineId }}</td>
+    </tr>
+    <tr>
+      <th scope="row">4</th>
+      <td>System operacyjny</td>
+      <td>{{ parameter.operatingSystem }}</td>
+    </tr>
+    <tr>
+      <th scope="row">5</th>
+      <td>Język</td>
+      <td>{{ parameter.language }}</td>
+    </tr>
+    <tr>
+      <th scope="row">6</th>
+      <td>Producent systemu</td>
+      <td>{{ parameter.systemManufacturer }}</td>
+    </tr>
+    <tr>
+      <th scope="row">7</th>
+      <td>Model komputera</td>
+      <td>{{ parameter.systemModel }}</td>
+    </tr>
+    <tr>
+      <th scope="row">8</th>
+      <td>Bios</td>
+      <td>{{ parameter.bios }}</td>
+    </tr>
+    <tr>
+      <th scope="row">9</th>
+      <td>Typ Firmware</td>
+      <td>{{ parameter.firmWareType }}</td>
+    </tr>
+    <tr>
+      <th scope="row">10</th>
+      <td>Processor</td>
+      <td>{{ parameter.processor }}</td>
+    </tr>
+    <tr>
+      <th scope="row">11</th>
+      <td>Pamięć</td>
+      <td>{{ parameter.memory }}</td>
+    </tr>
+    <tr>
+      <th scope="row">12</th>
+      <td>Dostępna pamięc systemu</td>
+      <td>{{ parameter.avaliableOsMemory }}</td>
+    </tr>
+    <tr>
+      <th scope="row">13</th>
+      <td>Plik strony</td>
+      <td>{{ parameter.pageFile }}</td>
+    </tr>
+    <tr>
+      <th scope="row">14</th>
+      <td>Folder instalacji</td>
+      <td>{{ parameter.windowsDir }}</td>
+    </tr>
+    <tr>
+      <th scope="row">15</th>
+      <td>Werscja directx</td>
+      <td>{{ parameter.directXVersion }}</td>
+    </tr>
+    <tr>
+      <th scope="row">16</th>
+      <td>Ustawienia DPI użytkownika</td>
+      <td>{{ parameter.userDpiSettings }}</td>
+    </tr>
+    <tr>
+      <th scope="row">17</th>
+      <td>Ustawienia DPI systemu</td>
+      <td>{{ parameter.systemDpiSettings }}</td>
+    </tr>
+  </tbody>
+</table>

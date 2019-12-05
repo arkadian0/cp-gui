@@ -1,0 +1,59 @@
+<table
+  class="table table-dark"
+  *ngFor="let parameter of biosParameters"
+>
+  <thead>
+    <tr>
+      <th colspan="3" scope="colgroup" class="table-tittle">
+        <img id="image" src="/assets/images/bios.png" /> Bios
+      </th>
+    </tr>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Parametr</th>
+      <th scope="col">Wartość</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">1</th>
+      <td>Wersja</td>
+      <td>{{ parameter.biosVersion }}</td>
+    </tr>
+    <tr>
+      <th scope="row">2</th>
+      <td>Podpis</td>
+      <td>{{ parameter.caption }}</td>
+    </tr>
+    <tr>
+      <th scope="row">3</th>
+      <td>Język</td>
+      <td>{{ parameter.currentLanguage }}</td>
+    </tr>
+    <tr>
+      <th scope="row">4</th>
+      <td>Opis</td>
+      <td>{{ parameter.description }}</td>
+    </tr>
+    <tr>
+      <th scope="row">5</th>
+      <td>Producent</td>
+      <td>{{ parameter.manufacturer }}</td>
+    </tr>
+    <tr>
+      <th scope="row">6</th>
+      <td>Nazwa</td>
+      <td>{{ parameter.name }}</td>
+    </tr>
+    <tr>
+      <th scope="row">7</th>
+      <td>Bios główny</td>
+      <td>{{ parameter.primaryBios }}</td>
+    </tr>
+    <tr>
+      <th scope="row">8</th>
+      <td>Status</td>
+      <td>{{ parameter.status }}</td>
+    </tr>
+  </tbody>
+</table>

@@ -1,0 +1,37 @@
+<table
+  class="table table-dark"
+  *ngFor="let parameter of usbDevicesParameters"
+>
+  <thead>
+    <tr>
+        <th colspan="3" scope="colgroup" class="table-tittle"><img id="image" src="/assets/images/operating-system.png"/>System operacyjny</th>
+    </tr>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Parametr</th>
+      <th scope="col">Wartość</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">1</th>
+      <td>Opis</td>
+      <td>{{ parameter.description }}</td>
+    </tr>
+    <tr>
+      <th scope="row">2</th>
+      <td>Id sprzedawcy</td>
+      <td>{{ parameter.vendorId }}</td>
+    </tr>
+    <tr>
+      <th scope="row">3</th>
+      <td>Id produktu</td>
+      <td>{{ parameter.productId }}</td>
+    </tr>
+    <tr>
+      <th scope="row">4</th>
+      <td>Pasujący identyfikator urządzenia</td>
+      <td>{{ parameter.matchingDeviceId }}</td>
+    </tr>
+  </tbody>
+</table>
