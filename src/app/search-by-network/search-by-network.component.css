@@ -36,6 +36,10 @@
   height: 300px;
 }
 
+.text-loading-position{
+  text-align: center;
+
+}
 .spinner-position {
   margin: 0;
   position: relative;
@@ -132,5 +136,5 @@
   widows: 60px;
   height: 60px;
   display:block;
-   margin:auto;
+  margin:auto;
 }

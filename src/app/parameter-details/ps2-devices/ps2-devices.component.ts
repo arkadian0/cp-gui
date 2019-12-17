@@ -1,7 +1,9 @@
 import { Ps2Device } from './../../transfer/command';
 import { Component, OnInit } from '@angular/core';
-import { ComputerParametersRestService } from 'src/app/rest/ComputerParametersRestService';
 import { ActivatedRoute } from '@angular/router';
+import { ComputerParametersRestService } from '../../rest/ComputerParametersRestService';
+import { WebStorageService, ComputerInfoSessionKey } from '../../service/WebStorageService';
+
 
 @Component({
   selector: 'app-ps2-devices',
@@ -10,14 +12,17 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class Ps2DevicesComponent implements OnInit {
 
-  ipAddress: string;
+  computerName: string;
   ps2DevicesParameters: Ps2Device[];
 
-  constructor(private computerParametersService: ComputerParametersRestService, private route: ActivatedRoute) { }
-
+  constructor(private computerParametersService: ComputerParametersRestService, private route: ActivatedRoute ,
+    private localStorageService: WebStorageService) { }
   ngOnInit() {
-    this.ipAddress = this.route.snapshot.paramMap.get('ipAddress');
-    this.computerParametersService.getPs2DevicesByIpAddress(this.ipAddress).subscribe(parameters => {
+    const sessionComputerInfo = this.localStorageService.getSessionStorage(ComputerInfoSessionKey.key);
+    if (sessionComputerInfo) {
+      this.computerName = sessionComputerInfo.computerName;
+    }
+    this.computerParametersService.getLastPs2DevicesByComputerName(this.computerName).subscribe(parameters => {
       if (parameters) {
         this.ps2DevicesParameters = parameters;
       }

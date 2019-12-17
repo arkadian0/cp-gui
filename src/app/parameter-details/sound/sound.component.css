@@ -13,4 +13,6 @@
     font-size: 25px;
     padding: 2%;
   }
-  
+  table tbody {
+    border-top: 5px solid gray;
+  }

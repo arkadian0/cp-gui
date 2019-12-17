@@ -10,8 +10,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { routing } from './app.routing';
 import { LoginComponent } from './login/login.component';
-import { SelectIpComponent } from './select-ip/select-ip.component';
-import { MatProgressSpinnerModule } from '@angular/material';
+import { MatProgressSpinnerModule, MatFormField, MatLabel, MatSelect, MatOption, MatSelectModule, MatOptionModule, MatFormFieldModule } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SearchByNetworkComponent } from './search-by-network/search-by-network.component';
 import { WebStorageService } from './service/WebStorageService';
@@ -29,7 +28,11 @@ import { SoundComponent } from './parameter-details/sound/sound.component';
 import { UsersComponent } from './parameter-details/users/users.component';
 import { VideoDevicesComponent } from './parameter-details/video-devices/video-devices.component';
 import { CaptureDevicesComponent } from './parameter-details/capture-devices/capture-devices.component';
-
+import { ChooseOptionsComponent } from './choose-options/choose-options.component';
+import { AllParametersComponent } from './parameter-details/all-parameters/all-parameters.component';
+import {MatCheckboxModule} from '@angular/material/checkbox';
+import { CompareComputersComponent } from './compare-computers/compare-computers.component';
+import { HistoryParametersComponent } from './history-parameters/history-parameters.component';
 @NgModule({
     imports: [
         BrowserModule,
@@ -38,11 +41,14 @@ import { CaptureDevicesComponent } from './parameter-details/capture-devices/cap
         routing,
         BrowserAnimationsModule,
         MatProgressSpinnerModule,
+        MatCheckboxModule,
+        MatFormFieldModule,
+        MatSelectModule,
+        MatOptionModule,
     ],
     declarations: [
         AppComponent,
         LoginComponent,
-        SelectIpComponent,
         SearchByNetworkComponent,
         ViewParametersComponent,
         OperatingSystemComponent,
@@ -60,7 +66,11 @@ import { CaptureDevicesComponent } from './parameter-details/capture-devices/cap
         InputDevicesComponent,
         Ps2DevicesComponent,
         CaptureDevicesComponent,
-        SystemDevicesComponent],
+        SystemDevicesComponent,
+        ChooseOptionsComponent,
+        AllParametersComponent,
+        CompareComputersComponent,
+        HistoryParametersComponent],
     providers: [WebStorageService, FindComputerRestService, ComputerParametersRestService],
     bootstrap: [AppComponent]
 })

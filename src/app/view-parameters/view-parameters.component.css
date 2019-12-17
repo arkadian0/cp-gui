@@ -1,20 +1,17 @@
 .flex-container {
   display: flex;
   flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
-  width: 90%;
-  margin: 0 auto;
+  float: left;
+  width: 30%;
 }
 
 .flex-container > div {
   background-color: #f1f1f1;
-  margin: 15px;
   width: 350px;
-  padding: 5px;
+  padding: 2px;
+  margin-top:5px;
   font-size: 16px;
   cursor: pointer;
-  border: 0.5px solid rgb(25, 53, 25);
   transition: background-color 0.5s ease;
 }
 
@@ -41,18 +38,29 @@
   width: 70%;
   height: 55%;
   padding: 10px;
-  
 }
 
 .computers-info {
-  font-size: 15px;
-  font-weight: bold;
+  font-size: 17px;
 }
 
-#image
-{
-  widows: 60px;
-  height: 60px;
-  display:block;
-   margin:auto;
+#image {
+  widows: 40px;
+  height: 40px;
+  display: block;
+  margin: auto;
+}
+
+#title {
+  text-align: center;
+  font-size: 30px;
+  padding: 1%;
+}
+.computer-info{
+  font-size:25px;
+  padding:15px;
+}
+.computer-info-container{
+  width: 100%;
+  text-align: center;
 }

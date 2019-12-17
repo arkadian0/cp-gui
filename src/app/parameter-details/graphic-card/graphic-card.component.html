@@ -1,6 +1,5 @@
 <table
-  class="table table-dark"
-  *ngFor="let parameter of displayDevicesParameters"
+  class="table table-dark" *ngIf="displayDevicesParameters"
 >
   <thead>
     <tr>
@@ -12,7 +11,7 @@
       <th scope="col">Wartość</th>
     </tr>
   </thead>
-  <tbody>
+  <tbody *ngFor="let parameter of displayDevicesParameters">
     <tr>
       <th scope="row">1</th>
       <td>Nazwa karty graficznej</td>

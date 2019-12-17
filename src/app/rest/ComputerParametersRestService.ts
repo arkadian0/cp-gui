@@ -1,5 +1,5 @@
 import { SystemDevicesComponent } from './../parameter-details/system-devices/system-devices.component';
-import { Processor, InternalMemory, HardDrive, DisplayDevice, NetworkCard, SoundDevice, SystemUser, InstalledApplication, UsbDevice, InputDevice, Ps2Device, CaptureDevice, VideoDevice, SystemDevice } from './../transfer/command';
+import { Processor, InternalMemory, HardDrive, DisplayDevice, NetworkCard, SoundDevice, SystemUser, InstalledApplication, UsbDevice, InputDevice, Ps2Device, CaptureDevice, VideoDevice, SystemDevice, AllParameters} from './../transfer/command';
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
@@ -8,95 +8,189 @@ import { OperatingSystem, Bios } from '../transfer/command';
 @Injectable()
 export class ComputerParametersRestService {
   REST_URL = 'http://localhost:8080';
+  DEFAULT_PORT = '8080';
 
   constructor(private http: HttpClient) { }
 
-  checkComputerHasGeneratedSpecyfication(ipAddress: string): Observable<boolean> {
+  checkComputerHasGeneratedSpecyfication(computerName: string): Observable<boolean> {
     const options = this.createAuthorization();
-    return this.http.get<boolean>(this.REST_URL + '/parameter/generated/' + ipAddress, options);
+    return this.http.get<boolean>(this.REST_URL + '/parameter/last-generated/generated/' + computerName, options);
   }
 
-  getOperatingSystemByIpAddress(ipAddress: string): Observable<OperatingSystem[]> {
+  getLastOperatingSystemByComputerName(computerName: string): Observable<OperatingSystem[]> {
     const options = this.createAuthorization();
-    return this.http.get<OperatingSystem[]>(this.REST_URL + '/parameter/operating-systems/' + ipAddress, options);
+    return this.http.get<OperatingSystem[]>(this.REST_URL + '/parameter/last-generated/operating-systems/' + computerName, options);
   }
 
-  getBiosByIpAddress(ipAddress: string): Observable<Bios[]> {
+  getLastBiosByComputerName(computerName: string): Observable<Bios[]> {
     const options = this.createAuthorization();
-    return this.http.get<Bios[]>(this.REST_URL + '/parameter/bios/' + ipAddress, options);
+    return this.http.get<Bios[]>(this.REST_URL + '/parameter/last-generated/bios/' + computerName, options);
   }
 
-  getProcessorsByIpAddress(ipAddress: string): Observable<Processor[]> {
+  getLastProcessorsByComputerName(computerName: string): Observable<Processor[]> {
     const options = this.createAuthorization();
-    return this.http.get<Processor[]>(this.REST_URL + '/parameter/processors/' + ipAddress, options);
+    return this.http.get<Processor[]>(this.REST_URL + '/parameter/last-generated/processors/' + computerName, options);
   }
 
-  getInternalMemoriesByIpAddress(ipAddress: string): Observable<InternalMemory[]> {
+  getLastInternalMemoriesByComputerName(computerName: string): Observable<InternalMemory[]> {
     const options = this.createAuthorization();
-    return this.http.get<InternalMemory[]>(this.REST_URL + '/parameter/internal-memories/' + ipAddress, options);
+    return this.http.get<InternalMemory[]>(this.REST_URL + '/parameter/last-generated/internal-memories/' + computerName, options);
   }
 
-  getHardDisksByIpAddress(ipAddress: string): Observable<HardDrive[]> {
+  getLastHardDisksByComputerName(computerName: string): Observable<HardDrive[]> {
     const options = this.createAuthorization();
-    return this.http.get<HardDrive[]>(this.REST_URL + '/parameter/hard-drives/' + ipAddress, options);
+    return this.http.get<HardDrive[]>(this.REST_URL + '/parameter/last-generated/hard-drives/' + computerName, options);
   }
 
-  getDisplayDevicesByIpAddress(ipAddress: string): Observable<DisplayDevice[]> {
+  getLastDisplayDevicesByComputerName(computerName: string): Observable<DisplayDevice[]> {
     const options = this.createAuthorization();
-    return this.http.get<DisplayDevice[]>(this.REST_URL + '/parameter/display-devices/' + ipAddress, options);
+    return this.http.get<DisplayDevice[]>(this.REST_URL + '/parameter/last-generated/display-devices/' + computerName, options);
   }
 
-  getNetworkCardsByIpAddress(ipAddress: string): Observable<NetworkCard[]> {
+  getLastNetworkCardsByComputerName(computerName: string): Observable<NetworkCard[]> {
     const options = this.createAuthorization();
-    return this.http.get<NetworkCard[]>(this.REST_URL + '/parameter/netword-cards/' + ipAddress, options);
+    return this.http.get<NetworkCard[]>(this.REST_URL + '/parameter/last-generated/network-cards/' + computerName, options);
   }
 
-  getSoundDevicesByIpAddress(ipAddress: string): Observable<SoundDevice[]> {
+  getLasttSoundDevicesByComputerName(computerName: string): Observable<SoundDevice[]> {
     const options = this.createAuthorization();
-    return this.http.get<SoundDevice[]>(this.REST_URL + '/parameter/sound-devices/' + ipAddress, options);
+    return this.http.get<SoundDevice[]>(this.REST_URL + '/parameter/last-generated/sound-devices/' + computerName, options);
   }
 
-  getUsersByIpAddress(ipAddress: string): Observable<SystemUser[]> {
+  getLastUsersByComputerName(computerName: string): Observable<SystemUser[]> {
     const options = this.createAuthorization();
-    return this.http.get<SystemUser[]>(this.REST_URL + '/parameter/system-users/' + ipAddress, options);
+    return this.http.get<SystemUser[]>(this.REST_URL + '/parameter/last-generated/system-users/' + computerName, options);
   }
 
-  getInstalledApplicationsByIpAddress(ipAddress: string): Observable<InstalledApplication[]> {
+  getLastInstalledApplicationsByComputerName(computerName: string): Observable<InstalledApplication[]> {
     const options = this.createAuthorization();
-    return this.http.get<InstalledApplication[]>(this.REST_URL + '/parameter/installed-applications/' + ipAddress, options);
+    return this.http.get<InstalledApplication[]>(this.REST_URL + '/parameter/last-generated/installed-applications/' + computerName, options);
   }
 
-  getUsbDevicesByIpAddress(ipAddress: string): Observable<UsbDevice[]> {
+  getLastUsbDevicesByComputerName(computerName: string): Observable<UsbDevice[]> {
     const options = this.createAuthorization();
-    return this.http.get<UsbDevice[]>(this.REST_URL + '/parameter/usb-devices/' + ipAddress, options);
+    return this.http.get<UsbDevice[]>(this.REST_URL + '/parameter/last-generated/usb-devices/' + computerName, options);
   }
 
-  getInputDevicesByIpAddress(ipAddress: string): Observable<InputDevice[]> {
+  getLastInputDevicesByComputerName(computerName: string): Observable<InputDevice[]> {
     const options = this.createAuthorization();
-    return this.http.get<InputDevice[]>(this.REST_URL + '/parameter/input-devices/' + ipAddress, options);
+    return this.http.get<InputDevice[]>(this.REST_URL + '/parameter/last-generated/direct-input-devices/' + computerName, options);
   }
 
-  getPs2DevicesByIpAddress(ipAddress: string): Observable<Ps2Device[]> {
+  getLastPs2DevicesByComputerName(computerName: string): Observable<Ps2Device[]> {
     const options = this.createAuthorization();
-    return this.http.get<Ps2Device[]>(this.REST_URL + '/parameter/ps2-devices/' + ipAddress, options);
+    return this.http.get<Ps2Device[]>(this.REST_URL + '/parameter/last-generated/ps2-devices/' + computerName, options);
   }
 
-  getCaptureDevicesByIpAddress(ipAddress: string): Observable<CaptureDevice[]> {
+  getLastCaptureDevicesByComputerName(computerName: string): Observable<CaptureDevice[]> {
     const options = this.createAuthorization();
-    return this.http.get<CaptureDevice[]>(this.REST_URL + '/parameter/capture-devices/' + ipAddress, options);
+    return this.http.get<CaptureDevice[]>(this.REST_URL + '/parameter/last-generated/capture-devices/' + computerName, options);
   }
 
-  getVideoDevicesByIpAddress(ipAddress: string): Observable<VideoDevice[]> {
+  getLastVideoDevicesByComputerName(computerName: string): Observable<VideoDevice[]> {
     const options = this.createAuthorization();
-    return this.http.get<VideoDevice[]>(this.REST_URL + '/parameter/video-devices/' + ipAddress, options);
+    return this.http.get<VideoDevice[]>(this.REST_URL + '/parameter/last-generated/video-devices/' + computerName, options);
   }
 
-  getSystemDevicesByIpAddress(ipAddress: string): Observable<SystemDevice[]> {
+  getLastSystemDevicesByComputerName(computerName: string): Observable<SystemDevice[]> {
     const options = this.createAuthorization();
-    return this.http.get<SystemDevice[]>(this.REST_URL + '/parameter/system-devices/' + ipAddress, options);
+    return this.http.get<SystemDevice[]>(this.REST_URL + '/parameter/last-generated/system-devices/' + computerName, options);
   }
 
+  getLastAllParametersByComputerName(computerName: string): Observable<AllParameters> {
+    const options = this.createAuthorization();
+    return this.http.get<AllParameters>(this.REST_URL + '/parameter/last-generated/all-parameters/' + computerName, options);
+  }
 
+  generateComputerParameters(computerName: string): Observable<boolean> {
+    const options = this.createAuthorization();
+    return this.http.get<boolean>(computerName + ':' + this.DEFAULT_PORT + '/generate/parameters', options);
+  }
+
+  getOperatingSystemByComputerId(computerId: number): Observable<OperatingSystem[]> {
+    const options = this.createAuthorization();
+    return this.http.get<OperatingSystem[]>(this.REST_URL + '/parameter/operating-systems/' + computerId, options);
+  }
+
+  getBiosByComputerId(computerId: number): Observable<Bios[]> {
+    const options = this.createAuthorization();
+    return this.http.get<Bios[]>(this.REST_URL + '/parameter/bios/' + computerId, options);
+  }
+
+  getProcessorsByComputerId(computerId: number): Observable<Processor[]> {
+    const options = this.createAuthorization();
+    return this.http.get<Processor[]>(this.REST_URL + '/parameter/processors/' + computerId, options);
+  }
+
+  getInternalMemoriesByComputerId(computerId: number): Observable<InternalMemory[]> {
+    const options = this.createAuthorization();
+    return this.http.get<InternalMemory[]>(this.REST_URL + '/parameter/internal-memories/' + computerId, options);
+  }
+
+  getHardDisksByComputerId(computerId: number): Observable<HardDrive[]> {
+    const options = this.createAuthorization();
+    return this.http.get<HardDrive[]>(this.REST_URL + '/parameter/hard-drives/' + computerId, options);
+  }
+
+  getDisplayDevicesByComputerId(computerId: number): Observable<DisplayDevice[]> {
+    const options = this.createAuthorization();
+    return this.http.get<DisplayDevice[]>(this.REST_URL + '/parameter/display-devices/' + computerId, options);
+  }
+
+  getNetworkCardsByComputerId(computerId: number): Observable<NetworkCard[]> {
+    const options = this.createAuthorization();
+    return this.http.get<NetworkCard[]>(this.REST_URL + '/parameter/network-cards/' + computerId, options);
+  }
+
+  getSoundDevicesByComputerId(computerId: number): Observable<SoundDevice[]> {
+    const options = this.createAuthorization();
+    return this.http.get<SoundDevice[]>(this.REST_URL + '/parameter/sound-devices/' + computerId, options);
+  }
+
+  getUsersByComputerId(computerId: number): Observable<SystemUser[]> {
+    const options = this.createAuthorization();
+    return this.http.get<SystemUser[]>(this.REST_URL + '/parameter/system-users/' + computerId, options);
+  }
+
+  getInstalledApplicationsByComputerId(computerId: number): Observable<InstalledApplication[]> {
+    const options = this.createAuthorization();
+    return this.http.get<InstalledApplication[]>(this.REST_URL + '/parameter/installed-applications/' + computerId, options);
+  }
+
+  getUsbDevicesByComputerId(computerId: number): Observable<UsbDevice[]> {
+    const options = this.createAuthorization();
+    return this.http.get<UsbDevice[]>(this.REST_URL + '/parameter/usb-devices/' + computerId, options);
+  }
+
+  getInputDevicesByComputerId(computerId: number): Observable<InputDevice[]> {
+    const options = this.createAuthorization();
+    return this.http.get<InputDevice[]>(this.REST_URL + '/parameter/direct-input-devices/' + computerId, options);
+  }
+
+  getPs2DevicesByComputerId(computerId: number): Observable<Ps2Device[]> {
+    const options = this.createAuthorization();
+    return this.http.get<Ps2Device[]>(this.REST_URL + '/parameter/ps2-devices/' + computerId, options);
+  }
+
+  getCaptureDevicesByComputerId(computerId: number): Observable<CaptureDevice[]> {
+    const options = this.createAuthorization();
+    return this.http.get<CaptureDevice[]>(this.REST_URL + '/parameter/capture-devices/' + computerId, options);
+  }
+
+  getVideoDevicesByComputerId(computerId: number): Observable<VideoDevice[]> {
+    const options = this.createAuthorization();
+    return this.http.get<VideoDevice[]>(this.REST_URL + '/parameter/video-devices/' + computerId, options);
+  }
+
+  getSystemDevicesByComputerId(computerId: number): Observable<SystemDevice[]> {
+    const options = this.createAuthorization();
+    return this.http.get<SystemDevice[]>(this.REST_URL + '/parameter/system-devices/' + computerId, options);
+  }
+
+  getAllParametersByComputerId(computerId: number): Observable<AllParameters> {
+    const options = this.createAuthorization();
+    return this.http.get<AllParameters>(this.REST_URL + '/parameter/all-parameters/' + computerId, options);
+  }
   createAuthorization() {
     const headers: HttpHeaders = new HttpHeaders({
       'Authorization': 'Basic ' + sessionStorage.getItem('token'),

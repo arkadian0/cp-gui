@@ -1,10 +1,9 @@
 <table
-  class="table table-dark"
-  *ngFor="let parameter of networksParameters"
+  class="table table-dark" *ngIf="networksParameters"
 >
   <thead>
     <tr>
-        <th colspan="3" scope="colgroup" class="table-tittle"><img id="image" src="/assets/images/operating-system.png"/>System operacyjny</th>
+        <th colspan="3" scope="colgroup" class="table-tittle"><img id="image" src="/assets/images/network-card.png"/>Karta sieciowa</th>
     </tr>
     <tr>
       <th scope="col">#</th>
@@ -12,7 +11,7 @@
       <th scope="col">Wartość</th>
     </tr>
   </thead>
-  <tbody>
+  <tbody *ngFor="let parameter of networksParameters">
     <tr>
       <th scope="row">1</th>
       <td>Typ adaptera</td>

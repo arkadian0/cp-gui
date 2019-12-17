@@ -1,8 +1,8 @@
-import { ComputerParametersRestService } from 'src/app/rest/ComputerParametersRestService';
 import { DisplayDevice } from './../../transfer/command';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-
+import { ComputerParametersRestService } from '../../rest/ComputerParametersRestService';
+import { WebStorageService, ComputerInfoSessionKey } from '../../service/WebStorageService';
 @Component({
   selector: 'app-graphic-card',
   templateUrl: './graphic-card.component.html',
@@ -10,14 +10,17 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class GraphicCardComponent implements OnInit {
 
-  ipAddress: string;
+  computerName: string;
   displayDevicesParameters: DisplayDevice[];
 
-  constructor(private computerParametersService: ComputerParametersRestService, private route: ActivatedRoute) { }
-
+  constructor(private computerParametersService: ComputerParametersRestService, private route: ActivatedRoute ,
+    private localStorageService: WebStorageService) { }
   ngOnInit() {
-    this.ipAddress = this.route.snapshot.paramMap.get('ipAddress');
-    this.computerParametersService.getDisplayDevicesByIpAddress(this.ipAddress).subscribe(parameters => {
+    const sessionComputerInfo = this.localStorageService.getSessionStorage(ComputerInfoSessionKey.key);
+    if (sessionComputerInfo) {
+      this.computerName = sessionComputerInfo.computerName;
+    }
+    this.computerParametersService.getLastDisplayDevicesByComputerName(this.computerName).subscribe(parameters => {
       if (parameters) {
         this.displayDevicesParameters = parameters;
       }

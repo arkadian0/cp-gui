@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { VideoDevice } from 'src/app/transfer/command';
-import { ComputerParametersRestService } from 'src/app/rest/ComputerParametersRestService';
+import { VideoDevice } from '../../transfer/command';
+import { ComputerParametersRestService } from '../../rest/ComputerParametersRestService';
 import { ActivatedRoute } from '@angular/router';
+import { WebStorageService, ComputerInfoSessionKey } from '../../service/WebStorageService';
 
 @Component({
   selector: 'app-video-devices',
@@ -10,14 +11,17 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class VideoDevicesComponent implements OnInit {
 
-  ipAddress: string;
+  computerName: string;
   videoDevicesParameters: VideoDevice[];
 
-  constructor(private computerParametersService: ComputerParametersRestService, private route: ActivatedRoute) { }
-
+  constructor(private computerParametersService: ComputerParametersRestService, private route: ActivatedRoute ,
+    private localStorageService: WebStorageService) { }
   ngOnInit() {
-    this.ipAddress = this.route.snapshot.paramMap.get('ipAddress');
-    this.computerParametersService.getVideoDevicesByIpAddress(this.ipAddress).subscribe(parameters => {
+    const sessionComputerInfo = this.localStorageService.getSessionStorage(ComputerInfoSessionKey.key);
+    if (sessionComputerInfo) {
+      this.computerName = sessionComputerInfo.computerName;
+    }
+    this.computerParametersService.getLastVideoDevicesByComputerName(this.computerName).subscribe(parameters => {
       if (parameters) {
         this.videoDevicesParameters = parameters;
       }

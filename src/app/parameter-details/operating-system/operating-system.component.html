@@ -1,6 +1,5 @@
 <table
-  class="table table-dark"
-  *ngFor="let parameter of operatingSystemParameters"
+  class="table table-dark" *ngIf="operatingSystemParameters"
 >
   <thead>
     <tr>
@@ -12,7 +11,7 @@
       <th scope="col">Wartość</th>
     </tr>
   </thead>
-  <tbody>
+  <tbody *ngFor="let parameter of operatingSystemParameters">
     <tr>
       <th scope="row">1</th>
       <td>Czas</td>

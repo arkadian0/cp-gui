@@ -230,3 +230,48 @@ export interface SystemDevice {
     name: string;
     deviceKey: string;
 }
+
+export interface AllParameters {
+     biosVM: Bios[];
+     captureDeviceVm: CaptureDevice[];
+     directInputDeviceVm: InputDevice[];
+     displayDeviceVm: DisplayDevice[];
+     hardDriveVm: HardDrive[];
+     internalMemoryVm: InternalMemory[];
+     operatingSystemVm: OperatingSystem[];
+     processorVm: Processor[];
+     ps2DeviceVm: Ps2Device[];
+     soundDeviceVm: SoundDevice[];
+     systemDeviceVm: SystemDevice[];
+     systemUserVm: SystemUser[];
+     usbDeviceVm: UsbDevice[];
+     videoDeviceVm: VideoDevice[];
+     installedApplicationVm: InstalledApplication[];
+     networkCardVms: NetworkCard[];
+}
+
+export interface AllParameters {
+    biosVM: Bios[];
+    captureDeviceVm: CaptureDevice[];
+    directInputDeviceVm: InputDevice[];
+    displayDeviceVm: DisplayDevice[];
+    hardDriveVm: HardDrive[];
+    internalMemoryVm: InternalMemory[];
+    operatingSystemVm: OperatingSystem[];
+    processorVm: Processor[];
+    ps2DeviceVm: Ps2Device[];
+    soundDeviceVm: SoundDevice[];
+    systemDeviceVm: SystemDevice[];
+    systemUserVm: SystemUser[];
+    usbDeviceVm: UsbDevice[];
+    videoDeviceVm: VideoDevice[];
+    installedApplicationVm: InstalledApplication[];
+    networkCardVms: NetworkCard[];
+}
+
+export interface ComputerInfoDTO {
+    computerId: number;
+    ipAddress: string;
+    computerName: string;
+    generationDate: any;
+}

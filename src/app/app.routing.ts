@@ -1,4 +1,9 @@
-﻿import { CaptureDevicesComponent } from './parameter-details/capture-devices/capture-devices.component';
+﻿import { HistoryParametersComponent } from './history-parameters/history-parameters.component';
+import { CompareComputersComponent } from './compare-computers/compare-computers.component';
+import { AllParametersComponent } from './parameter-details/all-parameters/all-parameters.component';
+import { AllParameters } from './transfer/command';
+import { ChooseOptionsComponent } from './choose-options/choose-options.component';
+import { CaptureDevicesComponent } from './parameter-details/capture-devices/capture-devices.component';
 import { VideoDevicesComponent } from './parameter-details/video-devices/video-devices.component';
 import { SystemDevicesComponent } from './parameter-details/system-devices/system-devices.component';
 import { Ps2DevicesComponent } from './parameter-details/ps2-devices/ps2-devices.component';
@@ -22,28 +27,35 @@ import { SoundComponent } from './parameter-details/sound/sound.component';
 
 
 export const routes: Routes = [
-    { path: '', component: SearchByNetworkComponent},
-    { path: 'search-network', component: SearchByNetworkComponent},
-    { path: 'view-parameters/:ipAddress', component: ViewParametersComponent },
-    { path: 'login', component: LoginComponent },
-    { path: 'operating-systems/details/:ipAddress', component: OperatingSystemComponent},
-    { path: 'bios/details/:ipAddress', component: BiosComponent},
-    { path: 'processors/details/:ipAddress', component: ProcesorComponent},
-    { path: 'internal-memories/details/:ipAddress', component: InternalMemoryComponent},
-    { path: 'hard-disks/details/:ipAddress', component: HardDiskComponent},
-    { path: 'graphics/details/:ipAddress', component: GraphicCardComponent},
-    { path: 'networks/details/:ipAddress', component: NetworkComponent},
-    { path: 'sounds/details/:ipAddress', component: SoundComponent},
-    { path: 'users/details/:ipAddress', component: UsersComponent},
-    { path: 'installed-applications/details/:ipAddress', component: InstalledApplicationComponent},
-    { path: 'usb-devices/details/:ipAddress', component: UsbDevicesComponent},
-    { path: 'input-devices/details/:ipAddress', component: InputDevicesComponent},
-    { path: 'ps2-devices/details/:ipAddress', component: Ps2DevicesComponent},
-    { path: 'capture-devices/details/:ipAddress', component: CaptureDevicesComponent},
-    { path: 'video-devices/details/:ipAddress', component: VideoDevicesComponent},
-    { path: 'system-devices/details/:ipAddress', component: SystemDevicesComponent},
-    { path: '**', redirectTo: '' },
-  ];
+  { path: '', component: SearchByNetworkComponent },
+  { path: 'search-network', component: SearchByNetworkComponent },
+  { path: 'login', component: LoginComponent },
+  { path: 'choose-option', component: ChooseOptionsComponent },
+  { path: 'compare-computers', component: CompareComputersComponent },
+  { path: 'history', component: HistoryParametersComponent },
+  { path: 'view-parameters', component: ViewParametersComponent, children: [
+      { path: 'all-parameters', component: AllParametersComponent },
+      { path: 'operating-systems', component: OperatingSystemComponent },
+      { path: 'bios', component: BiosComponent },
+      { path: 'processors', component: ProcesorComponent },
+      { path: 'internal-memories', component: InternalMemoryComponent },
+      { path: 'hard-disks', component: HardDiskComponent },
+      { path: 'graphics', component: GraphicCardComponent },
+      { path: 'networks', component: NetworkComponent },
+      { path: 'sounds', component: SoundComponent },
+      { path: 'users', component: UsersComponent },
+      { path: 'installed-applications', component: InstalledApplicationComponent },
+      { path: 'usb-devices', component: UsbDevicesComponent },
+      { path: 'input-devices', component: InputDevicesComponent },
+      { path: 'ps2-devices', component: Ps2DevicesComponent },
+      { path: 'capture-devices', component: CaptureDevicesComponent },
+      { path: 'video-devices', component: VideoDevicesComponent },
+      { path: 'system-devices', component: SystemDevicesComponent },
+    ]
+  },
+
+  { path: '**', redirectTo: '' },
+];
 
 export const routing = RouterModule.forRoot(routes);
 

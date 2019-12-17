@@ -1,3 +1,4 @@
+import { ComputerInfoSessionKey } from './../service/WebStorageService';
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { ComputerInNetworkDTO } from '../transfer/command';
 import { FindComputerRestService } from '../rest/FindComputerRestService';
@@ -14,6 +15,7 @@ import { Router } from '@angular/router';
 export class SearchByNetworkComponent implements OnInit {
   NETWORK_INFO_ITEM = 'NETWORK-INFO';
   networkInfo = new TemplateNetworkInfo();
+  computerInfo = new ComputerInfo();
   computersInNetwork: ComputerInNetworkDTO[];
   isLoading = false;
   isGenerated = true;
@@ -44,15 +46,24 @@ export class SearchByNetworkComponent implements OnInit {
     this.networkInfo.networkIp = storageNetworkInfo.networkIp;
     this.networkInfo.rangeFrom = storageNetworkInfo.rangeFrom;
     this.networkInfo.rangeTo = storageNetworkInfo.rangeTo;
+    this.networkInfo.computerName = storageNetworkInfo.computerName;
   }
 
-  viewParameters(ipAddress: string) {
-    this.router.navigate(['/view-parameters', ipAddress]);
+  viewParameters(ipAddress: string, computerName: string, generationDate: any) {
+    this.computerInfo.computerName = computerName;
+    this.computerInfo.ipAddress = ipAddress;
+    this.computerInfo.generationDate = generationDate;
+    this.localStorageService.setSessionStorage(ComputerInfoSessionKey.key, this.computerInfo);
+    this.router.navigate(['/choose-option']);
   }
 
 }
 
 class TemplateNetworkInfo {
-  constructor(public networkIp?: string, public rangeFrom?: string, public rangeTo?: string) { }
+  constructor(public networkIp?: string, public rangeFrom?: string, public rangeTo?: string, public computerName?: string) { }
+}
+
+class ComputerInfo {
+  constructor(public ipAddress?: string, public computerName?: string, public generationDate?: any) { }
 }
 

@@ -2,6 +2,7 @@ import { OperatingSystem } from './../../transfer/command';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ComputerParametersRestService } from '../../rest/ComputerParametersRestService';
+import { WebStorageService, ComputerInfoSessionKey } from '../../service/WebStorageService';
 
 @Component({
   selector: 'app-operating-system',
@@ -10,14 +11,17 @@ import { ComputerParametersRestService } from '../../rest/ComputerParametersRest
 })
 export class OperatingSystemComponent implements OnInit {
 
-  ipAddress: string;
+  computerName: string;
   operatingSystemParameters: OperatingSystem[];
 
-  constructor(private computerParametersService: ComputerParametersRestService, private route: ActivatedRoute) { }
-
+  constructor(private computerParametersService: ComputerParametersRestService, private route: ActivatedRoute ,
+    private localStorageService: WebStorageService) { }
   ngOnInit() {
-    this.ipAddress = this.route.snapshot.paramMap.get('ipAddress');
-    this.computerParametersService.getOperatingSystemByIpAddress(this.ipAddress).subscribe(parameters => {
+    const sessionComputerInfo = this.localStorageService.getSessionStorage(ComputerInfoSessionKey.key);
+    if (sessionComputerInfo) {
+      this.computerName = sessionComputerInfo.computerName;
+    }
+    this.computerParametersService.getLastOperatingSystemByComputerName(this.computerName).subscribe(parameters => {
       if (parameters) {
         this.operatingSystemParameters = parameters;
       }

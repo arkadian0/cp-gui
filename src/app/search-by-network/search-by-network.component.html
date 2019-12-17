@@ -27,10 +27,11 @@
 
     <div id="view-network-container">
       <div class="spinner-border text-primary spinner-position" *ngIf='isLoading'></div>  
+      <p class="text-loading-position"  *ngIf='isLoading'>Trwa wyszukiwanie komputerów w sieci lokalnej</p>
       
       <div class = "flex-container" *ngIf="computersInNetwork != null && !isLoading">
         
-        <div id="computer-detail"  *ngFor="let computer of computersInNetwork" (click)="viewParameters(computer.ipAddress)"> 
+        <div id="computer-detail"  *ngFor="let computer of computersInNetwork" (click)="viewParameters(computer.ipAddress,computer.computerName,computer.generationDate)"> 
           <div id="computer-image"><img id="image" src ="/assets/images/laptop.png"></div>
           <div class="computer-addressess" >
             <span class="computers-info">{{computer.ipAddress}} </span><br>

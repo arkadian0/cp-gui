@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
+import { ComputerInfoSessionKey, WebStorageService } from '../service/WebStorageService';
 
 @Component({
   selector: 'app-view-parameters',
@@ -9,89 +10,78 @@ import { Router, ActivatedRoute } from '@angular/router';
 export class ViewParametersComponent implements OnInit {
 
   ipAddress: string;
-
-  constructor(private route: ActivatedRoute, private router: Router) { }
+  computerName: string;
+  constructor(private route: ActivatedRoute, private router: Router,private localStorageService: WebStorageService) { }
 
   ngOnInit() {
+    this.computerName = this.localStorageService.getSessionStorage(ComputerInfoSessionKey.key).computerName;
+    this.ipAddress = this.localStorageService.getSessionStorage(ComputerInfoSessionKey.key).ipAddress;
   }
 
   viewOperatingSystemsDetails() {
-    this.ipAddress = this.route.snapshot.paramMap.get('ipAddress');
-    this.router.navigate(['/operating-systems/details', this.ipAddress]);
+    this.router.navigate(['/view-parameters/operating-systems' ]);
   }
 
   viewBiosDetails(ipAddress) {
-    this.ipAddress = this.route.snapshot.paramMap.get('ipAddress');
-    this.router.navigate(['/bios/details', this.ipAddress]);
+    this.router.navigate(['/view-parameters/bios' ]);
   }
 
   viewProcessorsDetails(ipAddress) {
-    this.ipAddress = this.route.snapshot.paramMap.get('ipAddress');
-    this.router.navigate(['/processors/details', this.ipAddress]);
+    this.router.navigate(['/view-parameters/processors' ]);
   }
 
   viewInternalMemoriesDetails(ipAddress) {
-    this.ipAddress = this.route.snapshot.paramMap.get('ipAddress');
-    this.router.navigate(['/internal-memories/details', this.ipAddress]);
+    this.router.navigate(['/view-parameters/internal-memories' ]);
   }
 
   viewHardDisksDetails(ipAddress) {
-    this.ipAddress = this.route.snapshot.paramMap.get('ipAddress');
-    this.router.navigate(['/hard-disks/details', this.ipAddress]);
+    this.router.navigate(['/view-parameters/hard-disks' ]);
   }
 
   viewGraphicsDetails(ipAddress) {
-    this.ipAddress = this.route.snapshot.paramMap.get('ipAddress');
-    this.router.navigate(['/graphics/details', this.ipAddress]);
+    this.router.navigate(['/view-parameters/graphics' ]);
   }
 
   viewNetworksDetails(ipAddress) {
-    this.ipAddress = this.route.snapshot.paramMap.get('ipAddress');
-    this.router.navigate(['/networks/details', this.ipAddress]);
+    this.router.navigate(['/view-parameters/networks' ]);
   }
 
   viewSoundsDetails(ipAddress) {
-    this.ipAddress = this.route.snapshot.paramMap.get('ipAddress');
-    this.router.navigate(['/sounds/details', this.ipAddress]);
+    this.router.navigate(['/view-parameters/sounds' ]);
   }
 
   viewUsersDetails(ipAddress) {
-    this.ipAddress = this.route.snapshot.paramMap.get('ipAddress');
-    this.router.navigate(['/users/details', this.ipAddress]);
+    this.router.navigate(['/view-parameters/users' ]);
   }
 
   viewInstalledApplicationsDetails(ipAddress) {
-    this.ipAddress = this.route.snapshot.paramMap.get('ipAddress');
-    this.router.navigate(['/installed-applications/details', this.ipAddress]);
+    this.router.navigate(['/view-parameters/installed-applications' ]);
   }
 
   viewUsbDevicesDetails(ipAddress) {
-    this.ipAddress = this.route.snapshot.paramMap.get('ipAddress');
-    this.router.navigate(['/usb-devices/details', this.ipAddress]);
+    this.router.navigate(['/view-parameters/usb-devices' ]);
   }
 
   viewInputDevicesDetails(ipAddress) {
-    this.ipAddress = this.route.snapshot.paramMap.get('ipAddress');
-    this.router.navigate(['/input-devices/details', this.ipAddress]);
+    this.router.navigate(['/view-parameters/input-devices' ]);
   }
 
   viewPs2DevicesDetails(ipAddress) {
-    this.ipAddress = this.route.snapshot.paramMap.get('ipAddress');
-    this.router.navigate(['/ps2-devices/details', this.ipAddress]);
+    this.router.navigate(['/view-parameters/ps2-devices' ]);
   }
 
   viewCaptureDevicesDetails(ipAddress) {
-    this.ipAddress = this.route.snapshot.paramMap.get('ipAddress');
-    this.router.navigate(['/capture-devices/details', this.ipAddress]);
+    this.router.navigate(['/view-parameters/capture-devices' ]);
   }
 
   viewVideoDevicesDetails(ipAddress) {
-    this.ipAddress = this.route.snapshot.paramMap.get('ipAddress');
-    this.router.navigate(['/video-devices/details', this.ipAddress]);
+    this.router.navigate(['/view-parameters/video-devices' ]);
   }
 
   viewSystemDevicesDetails(ipAddress) {
-    this.ipAddress = this.route.snapshot.paramMap.get('ipAddress');
-    this.router.navigate(['/system-devices/details', this.ipAddress]);
+    this.router.navigate(['/view-parameters/system-devices' ]);
+  }
+  displayAllParameters(ipAddress) {
+    this.router.navigate(['/view-parameters/all-parameters' ]);
   }
 }

@@ -1,7 +1,7 @@
 .table {
   width: 60%;
   margin: 0 auto;
-  margin-top: 5%;
+  margin-top: 1%;
 }
 #image {
   widows: 60px;
@@ -12,4 +12,7 @@
   text-align: center;
   font-size: 25px;
   padding: 2%;
+}
+table tbody {
+  border-top: 5px solid gray;
 }

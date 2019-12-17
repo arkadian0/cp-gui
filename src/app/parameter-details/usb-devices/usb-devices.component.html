@@ -1,10 +1,9 @@
 <table
-  class="table table-dark"
-  *ngFor="let parameter of usbDevicesParameters"
+  class="table table-dark" *ngIf="usbDevicesParameters"
 >
   <thead>
     <tr>
-        <th colspan="3" scope="colgroup" class="table-tittle"><img id="image" src="/assets/images/operating-system.png"/>System operacyjny</th>
+        <th colspan="3" scope="colgroup" class="table-tittle"><img id="image" src="/assets/images/usb.png"/>Urządzenia USB</th>
     </tr>
     <tr>
       <th scope="col">#</th>
@@ -12,7 +11,7 @@
       <th scope="col">Wartość</th>
     </tr>
   </thead>
-  <tbody>
+  <tbody *ngFor="let parameter of usbDevicesParameters">
     <tr>
       <th scope="row">1</th>
       <td>Opis</td>

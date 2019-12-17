@@ -1,7 +1,8 @@
-import { ComputerParametersRestService } from 'src/app/rest/ComputerParametersRestService';
 import { InputDevice } from './../../transfer/command';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { ComputerParametersRestService } from '../../rest/ComputerParametersRestService';
+import { WebStorageService, ComputerInfoSessionKey } from '../../service/WebStorageService';
 
 @Component({
   selector: 'app-input-devices',
@@ -10,14 +11,17 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class InputDevicesComponent implements OnInit {
 
-  ipAddress: string;
+  computerName: string;
   inputDevicesParameters: InputDevice[];
 
-  constructor(private computerParametersService: ComputerParametersRestService, private route: ActivatedRoute) { }
-
+  constructor(private computerParametersService: ComputerParametersRestService, private route: ActivatedRoute ,
+    private localStorageService: WebStorageService) { }
   ngOnInit() {
-    this.ipAddress = this.route.snapshot.paramMap.get('ipAddress');
-    this.computerParametersService.getInputDevicesByIpAddress(this.ipAddress).subscribe(parameters => {
+    const sessionComputerInfo = this.localStorageService.getSessionStorage(ComputerInfoSessionKey.key);
+    if (sessionComputerInfo) {
+      this.computerName = sessionComputerInfo.computerName;
+    }
+    this.computerParametersService.getLastInputDevicesByComputerName(this.computerName).subscribe(parameters => {
       if (parameters) {
         this.inputDevicesParameters = parameters;
       }

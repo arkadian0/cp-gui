@@ -1,7 +1,8 @@
-import { ComputerParametersRestService } from 'src/app/rest/ComputerParametersRestService';
 import { CaptureDevice } from './../../transfer/command';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { ComputerParametersRestService } from '../../rest/ComputerParametersRestService';
+import { WebStorageService, ComputerInfoSessionKey } from '../../service/WebStorageService';
 
 @Component({
   selector: 'app-capture-devices',
@@ -10,14 +11,17 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class CaptureDevicesComponent implements OnInit {
 
-  ipAddress: string;
+  computerName: string;
   captureDevicesParameters: CaptureDevice[];
 
-  constructor(private computerParametersService: ComputerParametersRestService, private route: ActivatedRoute) { }
-
+  constructor(private computerParametersService: ComputerParametersRestService, private route: ActivatedRoute ,
+    private localStorageService: WebStorageService) { }
   ngOnInit() {
-    this.ipAddress = this.route.snapshot.paramMap.get('ipAddress');
-    this.computerParametersService.getCaptureDevicesByIpAddress(this.ipAddress).subscribe(parameters => {
+    const sessionComputerInfo = this.localStorageService.getSessionStorage(ComputerInfoSessionKey.key);
+    if (sessionComputerInfo) {
+      this.computerName = sessionComputerInfo.computerName;
+    }
+    this.computerParametersService.getLastCaptureDevicesByComputerName(this.computerName).subscribe(parameters => {
       if (parameters) {
         this.captureDevicesParameters = parameters;
       }

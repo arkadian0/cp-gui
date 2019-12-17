@@ -1,10 +1,9 @@
 <table
-  class="table table-dark"
-  *ngFor="let parameter of hardDrivesParameters"
+  class="table table-dark" *ngIf="hardDrivesParameters"
 >
   <thead>
     <tr>
-        <th colspan="3" scope="colgroup" class="table-tittle"><img id="image" src="/assets/images/operating-system.png"/>System operacyjny</th>
+        <th colspan="3" scope="colgroup" class="table-tittle"><img id="image" src="/assets/images/hard-drive.png"/>Dysk twardy</th>
     </tr>
     <tr>
       <th scope="col">#</th>
@@ -12,7 +11,7 @@
       <th scope="col">Wartość</th>
     </tr>
   </thead>
-  <tbody>
+  <tbody *ngFor="let parameter of hardDrivesParameters">
     <tr>
       <th scope="row">1</th>
       <td>Litera dysku</td>
@@ -21,12 +20,12 @@
     <tr>
       <th scope="row">2</th>
       <td>Wole miejsce</td>
-      <td>{{ parameter.freeSpace }}</td>
+      <td>{{ parameter.freeSpace }} MB</td>
     </tr>
     <tr>
       <th scope="row">3</th>
       <td>Pojemność dysku</td>
-      <td>{{ parameter.maxSpace }}</td>
+      <td>{{ parameter.maxSpace }} MB</td>
     </tr>
     <tr>
       <th scope="row">4</th>

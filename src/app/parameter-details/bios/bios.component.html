@@ -1,6 +1,5 @@
-<table
+<table *ngIf="biosParameters"
   class="table table-dark"
-  *ngFor="let parameter of biosParameters"
 >
   <thead>
     <tr>
@@ -14,7 +13,7 @@
       <th scope="col">Wartość</th>
     </tr>
   </thead>
-  <tbody>
+  <tbody *ngFor="let parameter of biosParameters">
     <tr>
       <th scope="row">1</th>
       <td>Wersja</td>

@@ -1,3 +1,4 @@
+import { ComputerInfoDTO } from './../transfer/command';
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
@@ -12,6 +13,10 @@ export class FindComputerRestService {
   getActiveComputersInLocalAreaNetwork(addressRangeCommand: AddressRangeCommand): Observable<ComputerInNetworkDTO[]> {
     const options = this.createAuthorization();
     return this.http.post<ComputerInNetworkDTO[]>(this.REST_URL + '/search/active-computers', addressRangeCommand, options);
+  }
+  getInfoOfAllComputers(): Observable<ComputerInfoDTO[]> {
+    const options = this.createAuthorization();
+    return this.http.get<ComputerInfoDTO[]>(this.REST_URL + '/computers/info', options);
   }
   
   createAuthorization() {

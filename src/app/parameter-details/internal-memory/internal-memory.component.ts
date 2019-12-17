@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { InternalMemory } from 'src/app/transfer/command';
-import { ComputerParametersRestService } from 'src/app/rest/ComputerParametersRestService';
+import { InternalMemory } from '../../transfer/command';
 import { ActivatedRoute } from '@angular/router';
+import { ComputerParametersRestService } from '../../rest/ComputerParametersRestService';
+import { WebStorageService, ComputerInfoSessionKey } from '../../service/WebStorageService';
 
 @Component({
   selector: 'app-internal-memory',
@@ -10,14 +11,17 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class InternalMemoryComponent implements OnInit {
 
-  ipAddress: string;
+  computerName: string;
   internalMemoriesParameters: InternalMemory[];
 
-  constructor(private computerParametersService: ComputerParametersRestService, private route: ActivatedRoute) { }
-
+  constructor(private computerParametersService: ComputerParametersRestService, private route: ActivatedRoute ,
+    private localStorageService: WebStorageService) { }
   ngOnInit() {
-    this.ipAddress = this.route.snapshot.paramMap.get('ipAddress');
-    this.computerParametersService.getInternalMemoriesByIpAddress(this.ipAddress).subscribe(parameters => {
+    const sessionComputerInfo = this.localStorageService.getSessionStorage(ComputerInfoSessionKey.key);
+    if (sessionComputerInfo) {
+      this.computerName = sessionComputerInfo.computerName;
+    }
+    this.computerParametersService.getLastInternalMemoriesByComputerName(this.computerName).subscribe(parameters => {
       if (parameters) {
         this.internalMemoriesParameters = parameters;
       }
