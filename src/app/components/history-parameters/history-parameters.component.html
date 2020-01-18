@@ -1,0 +1,1590 @@
+<div class="search-container">
+<h5 class="centered">Wybierz datę generowania parametrów dla komputera {{computerName}} ({{ipAddress}})</h5>
+<select [(ngModel)]="selectedOption" class="form-control select-box">
+  <option selected="selected"></option>
+  <option *ngFor="let info of computersInfo" [ngValue]="info">{{ info.computerName }} ({{ info.generationDate }})</option>
+</select>
+<button (click)="showHistoricParameters()" type="button" class="btn btn-dark button-box">
+  Zobacz historię
+</button>
+</div>
+<div id="container-check" *ngIf="isShowTables">
+    <div class="custom-control custom-checkbox mr-sm-2 position-check-uncheck-all">
+      <input
+        [(ngModel)]="checkAll"
+        type="checkbox"
+        class="custom-control-input"
+        id="allOn"
+        (click)="checkOrUncheckAll()"
+      />
+      <label class="custom-control-label" for="allOn"
+        >Zaznacz/Odznacz wszsytko</label
+      >
+    </div>
+    <div class="flex-container">
+      <div id="computer-detail">
+        <div id="computer-image">
+          <img id="image" src="/assets/images/operating-system.png" />
+        </div>
+        <div class="computer-addressess">
+          <div class="custom-control custom-checkbox mr-sm-2">
+            <input
+              [(ngModel)]="checkedOperatingSystem"
+              type="checkbox"
+              class="custom-control-input"
+              id="operatingSystem"
+            />
+            <label class="custom-control-label label-text" for="operatingSystem"
+              >Operating system
+            </label>
+          </div>
+        </div>
+      </div>
+  
+      <div id="computer-detail">
+        <div id="computer-image">
+          <img id="image" src="/assets/images/bios.png" />
+        </div>
+        <div class="computer-addressess">
+          <div class="custom-control custom-checkbox mr-sm-2">
+            <input
+              [(ngModel)]="checkedBios"
+              type="checkbox"
+              class="custom-control-input"
+              id="bios"
+            />
+            <label class="custom-control-label label-text" for="bios">Bios</label>
+          </div>
+        </div>
+      </div>
+  
+      <div id="computer-detail">
+        <div id="computer-image">
+          <img id="image" src="/assets/images/cpu.png" />
+        </div>
+        <div class="computer-addressess">
+          <div class="custom-control custom-checkbox mr-sm-2">
+            <input
+              [(ngModel)]="checkedProcesor"
+              type="checkbox"
+              class="custom-control-input"
+              id="cpu"
+            />
+            <label class="custom-control-label label-text" for="cpu"
+              >Procesor</label
+            >
+          </div>
+        </div>
+      </div>
+  
+      <div id="computer-detail">
+        <div id="computer-image">
+          <img id="image" src="/assets/images/ram.png" />
+        </div>
+        <div class="computer-addressess">
+          <div class="custom-control custom-checkbox mr-sm-2">
+            <input
+              [(ngModel)]="checkedInternalMemory"
+              type="checkbox"
+              class="custom-control-input"
+              id="ram"
+            />
+            <label class="custom-control-label label-text" for="ram"
+              >Pamięć RAM</label
+            >
+          </div>
+        </div>
+      </div>
+  
+      <div id="computer-detail">
+        <div id="computer-image">
+          <img id="image" src="/assets/images/hard-drive.png" />
+        </div>
+        <div class="computer-addressess">
+          <div class="custom-control custom-checkbox mr-sm-2">
+            <input
+              [(ngModel)]="checkedHardDrive"
+              type="checkbox"
+              class="custom-control-input"
+              id="hardDrive"
+            />
+            <label class="custom-control-label label-text" for="hardDrive"
+              >Dyski twarde</label
+            >
+          </div>
+        </div>
+      </div>
+  
+      <div id="computer-detail">
+        <div id="computer-image">
+          <img id="image" src="/assets/images/gpu.png" />
+        </div>
+        <div class="computer-addressess">
+          <div class="custom-control custom-checkbox mr-sm-2">
+            <input
+              [(ngModel)]="checkedGraphics"
+              type="checkbox"
+              class="custom-control-input"
+              id="gpu"
+            />
+            <label class="custom-control-label label-text" for="gpu"
+              >Grafika</label
+            >
+          </div>
+        </div>
+      </div>
+  
+      <div id="computer-detail">
+        <div id="computer-image">
+          <img id="image" src="/assets/images/network-card.png" />
+        </div>
+        <div class="computer-addressess">
+          <div class="custom-control custom-checkbox mr-sm-2">
+            <input
+              [(ngModel)]="checkedNetwork"
+              type="checkbox"
+              class="custom-control-input"
+              id="network"
+            />
+            <label class="custom-control-label label-text" for="network"
+              >Sieć</label
+            >
+          </div>
+        </div>
+      </div>
+  
+      <div id="computer-detail">
+        <div id="computer-image">
+          <img id="image" src="/assets/images/sound-device.png" />
+        </div>
+        <div class="computer-addressess">
+          <div class="custom-control custom-checkbox mr-sm-2">
+            <input
+              [(ngModel)]="checkedSound"
+              type="checkbox"
+              class="custom-control-input"
+              id="sound"
+            />
+            <label class="custom-control-label label-text" for="sound"
+              >Dzwięk</label
+            >
+          </div>
+        </div>
+      </div>
+  
+      <div id="computer-detail">
+        <div id="computer-image">
+          <img id="image" src="/assets/images/users.png" />
+        </div>
+        <div class="computer-addressess">
+          <div class="custom-control custom-checkbox mr-sm-2">
+            <input
+              [(ngModel)]="checkedUsers"
+              type="checkbox"
+              class="custom-control-input"
+              id="users"
+            />
+            <label class="custom-control-label label-text" for="users"
+              >Użytkownicy</label
+            >
+          </div>
+        </div>
+      </div>
+  
+      <div id="computer-detail">
+        <div id="computer-image">
+          <img id="image" src="/assets/images/applications.png" />
+        </div>
+        <div class="computer-addressess">
+          <div class="custom-control custom-checkbox mr-sm-2">
+            <input
+              [(ngModel)]="checkedInstalledApplication"
+              type="checkbox"
+              class="custom-control-input"
+              id="applications"
+            />
+            <label class="custom-control-label label-text" for="applications"
+              >Zainstalowane aplikacje</label
+            >
+          </div>
+        </div>
+      </div>
+  
+      <div id="computer-detail">
+        <div id="computer-image">
+          <img id="image" src="/assets/images/usb.png" />
+        </div>
+        <div class="computer-addressess">
+          <div class="custom-control custom-checkbox mr-sm-2">
+            <input
+              [(ngModel)]="checkedUsbDevices"
+              type="checkbox"
+              class="custom-control-input"
+              id="usb"
+            />
+            <label class="custom-control-label label-text" for="usb"
+              >Urządzenia USB</label
+            >
+          </div>
+        </div>
+      </div>
+  
+      <div id="computer-detail">
+        <div id="computer-image">
+          <img id="image" src="/assets/images/input-devices.png" />
+        </div>
+        <div class="computer-addressess">
+          <div class="custom-control custom-checkbox mr-sm-2">
+            <input
+              [(ngModel)]="checkedInputDevices"
+              type="checkbox"
+              class="custom-control-input"
+              id="inputDevice"
+            />
+            <label class="custom-control-label label-text" for="inputDevice"
+              >Urządzenia wejścia</label
+            >
+          </div>
+        </div>
+      </div>
+  
+      <div id="computer-detail">
+        <div id="computer-image">
+          <img id="image" src="/assets/images/ps2.png" />
+        </div>
+        <div class="computer-addressess">
+          <div class="custom-control custom-checkbox mr-sm-2">
+            <input
+              [(ngModel)]="checkedPs2Devices"
+              type="checkbox"
+              class="custom-control-input"
+              id="ps2"
+            />
+            <label class="custom-control-label label-text" for="ps2"
+              >Urządzenia Ps2</label
+            >
+          </div>
+        </div>
+      </div>
+  
+      <div id="computer-detail">
+        <div id="computer-image">
+          <img id="image" src="/assets/images/capture-device.png" />
+        </div>
+        <div class="computer-addressess">
+          <div class="custom-control custom-checkbox mr-sm-2">
+            <input
+              [(ngModel)]="checkedCaptureDevices"
+              type="checkbox"
+              class="custom-control-input"
+              id="captureDevice"
+            />
+            <label class="custom-control-label label-text" for="captureDevice"
+              >Urządzenia przechwytujące</label
+            >
+          </div>
+        </div>
+      </div>
+  
+      <div id="computer-detail">
+        <div id="computer-image">
+          <img id="image" src="/assets/images/video-device.png" />
+        </div>
+        <div class="computer-addressess">
+          <div class="custom-control custom-checkbox mr-sm-2">
+            <input
+              [(ngModel)]="checkedVideoDevices"
+              type="checkbox"
+              class="custom-control-input"
+              id="videoDevice"
+            />
+            <label class="custom-control-label label-text" for="videoDevice"
+              >Urządzenia wideo</label
+            >
+          </div>
+        </div>
+      </div>
+  
+      <div id="computer-detail">
+        <div id="computer-image">
+          <img id="image" src="/assets/images/system-devices.png" />
+        </div>
+        <div class="computer-addressess">
+          <div class="custom-control custom-checkbox mr-sm-2">
+            <input
+              [(ngModel)]="checkedSystemDevices"
+              type="checkbox"
+              class="custom-control-input"
+              id="systemDevice"
+            />
+            <label class="custom-control-label label-text" for="systemDevice"
+              >Urządzenia systemowe</label
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+
+      <div id="computer-names-container" *ngIf="isShowTables && lastAndChoosedParameters[1]">
+        <p style="float:left"><b>Parametry komputera {{lastAndChoosedParameters[0].computerName}} z dnia {{lastAndChoosedParameters[0].generationDate}}</b><p>
+        <p style="float:right"><b>Parametry komputera {{selectedOption.computerName}} z dnia {{selectedOption.generationDate}}</b></p>
+      </div>
+      <div id="tip-box" *ngIf="isShowTables && lastAndChoosedParameters[1]"> 
+        <div id="green-box">
+        </div>
+        <p >Różniące się parametry</p>
+    </div>
+      </div>
+
+      <div class="flex-container-table" *ngIf="isShowTables">
+        <div *ngFor="let parameter of lastAndChoosedParameters; let i = index">
+          <table class="table table-dark" *ngIf="checkedOperatingSystem">
+            <thead>
+              <tr>
+                <th colspan="3" scope="colgroup" class="table-tittle">
+                  <img
+                    id="image-table"
+                    src="/assets/images/operating-system.png"
+                  />System operacyjny
+                </th>
+              </tr>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Parametr</th>
+                <th scope="col">Wartość</th>
+              </tr>
+            </thead>
+            <tbody *ngFor="let operatingSystemVm of parameter.operatingSystemVm; let i = index">
+              <tr [ngClass]='{green: (operatingSystemVm.time != lastAndChoosedParameters[0].operatingSystemVm[i].time)
+                || (operatingSystemVm.time != lastAndChoosedParameters[1].operatingSystemVm[i].time)}'>
+                <th scope="row">1</th>
+                <td>Nazwa maszyny</td>
+                <td>{{ operatingSystemVm.time }}</td>
+              </tr>
+              
+              <tr [ngClass]='{green: (operatingSystemVm.machineName != lastAndChoosedParameters[0].operatingSystemVm[i].machineName)
+                || (operatingSystemVm.machineName != lastAndChoosedParameters[1].operatingSystemVm[i].machineName)}'>
+                <th scope="row">2</th>
+                <td>Nazwa maszyny</td>
+                <td>{{ operatingSystemVm.machineName }}</td>
+              </tr>
+              <tr [ngClass]='{green: (operatingSystemVm.machineId != lastAndChoosedParameters[0].operatingSystemVm[i].machineId)
+                || (operatingSystemVm.machineId != lastAndChoosedParameters[1].operatingSystemVm[i].machineId)}'>
+                <th scope="row">3</th>
+                <td>Id maszyny</td>
+                <td>{{ operatingSystemVm.machineId }}</td>
+              </tr>
+              <tr [ngClass]='{green: (operatingSystemVm.operatingSystem != lastAndChoosedParameters[0].operatingSystemVm[i].operatingSystem)
+                || (operatingSystemVm.operatingSystem != lastAndChoosedParameters[1].operatingSystemVm[i].operatingSystem)}'>
+                <th scope="row">4</th>
+                <td>System operacyjny</td>
+                <td>{{ operatingSystemVm.operatingSystem }}</td>
+              </tr>
+              <tr [ngClass]='{green: (operatingSystemVm.language != lastAndChoosedParameters[0].operatingSystemVm[i].language)
+                || (operatingSystemVm.language != lastAndChoosedParameters[1].operatingSystemVm[i].language)}'>
+                <th scope="row">5</th>
+                <td>Język</td>
+                <td>{{ operatingSystemVm.language }}</td>
+              </tr>
+              <tr [ngClass]='{green: (operatingSystemVm.systemManufacturer != lastAndChoosedParameters[0].operatingSystemVm[i].systemManufacturer)
+                || (operatingSystemVm.systemManufacturer != lastAndChoosedParameters[1].operatingSystemVm[i].systemManufacturer)}'>
+                <th scope="row">6</th>
+                <td>Producent systemu</td>
+                <td>{{ operatingSystemVm.systemManufacturer }}</td>
+              </tr>
+              <tr [ngClass]='{green: (operatingSystemVm.systemModel != lastAndChoosedParameters[0].operatingSystemVm[i].systemModel)
+                || (operatingSystemVm.systemModel != lastAndChoosedParameters[1].operatingSystemVm[i].systemModel)}'>
+                <th scope="row">7</th>
+                <td>Model komputera</td>
+                <td>{{ operatingSystemVm.systemModel }}</td>
+              </tr>
+              <tr [ngClass]='{green: (operatingSystemVm.bios != lastAndChoosedParameters[0].operatingSystemVm[i].bios)
+                || (operatingSystemVm.bios != lastAndChoosedParameters[1].operatingSystemVm[i].bios)}'>
+                <th scope="row">8</th>
+                <td>Bios</td>
+                <td>{{ operatingSystemVm.bios }}</td>
+              </tr>
+              <tr [ngClass]='{green: (operatingSystemVm.firmWareType != lastAndChoosedParameters[0].operatingSystemVm[i].firmWareType)
+                || (operatingSystemVm.firmWareType != lastAndChoosedParameters[1].operatingSystemVm[i].firmWareType)}'>
+                <th scope="row">9</th>
+                <td>Typ Firmware</td>
+                <td>{{ operatingSystemVm.firmWareType }}</td>
+              </tr>
+              <tr [ngClass]='{green: (operatingSystemVm.processor != lastAndChoosedParameters[0].operatingSystemVm[i].processor)
+                || (operatingSystemVm.processor != lastAndChoosedParameters[1].operatingSystemVm[i].processor)}'>
+                <th scope="row">10</th>
+                <td>Processor</td>
+                <td>{{ operatingSystemVm.processor }}</td>
+              </tr>
+              <tr [ngClass]='{green: (operatingSystemVm.memory != lastAndChoosedParameters[0].operatingSystemVm[i].memory)
+                || (operatingSystemVm.memory != lastAndChoosedParameters[1].operatingSystemVm[i].memory)}'>
+                <th scope="row">11</th>
+                <td>Pamięć</td>
+                <td>{{ operatingSystemVm.memory }}</td>
+              </tr>
+              <tr [ngClass]='{green: (operatingSystemVm.avaliableOsMemory != lastAndChoosedParameters[0].operatingSystemVm[i].avaliableOsMemory)
+                || (operatingSystemVm.avaliableOsMemory != lastAndChoosedParameters[1].operatingSystemVm[i].avaliableOsMemory)}'>
+                <th scope="row">12</th>
+                <td>Dostępna pamięc systemu</td>
+                <td>{{ operatingSystemVm.avaliableOsMemory }}</td>
+              </tr>
+              <tr [ngClass]='{green: (operatingSystemVm.pageFile != lastAndChoosedParameters[0].operatingSystemVm[i].pageFile)
+                || (operatingSystemVm.pageFile != lastAndChoosedParameters[1].operatingSystemVm[i].pageFile)}'>
+                <th scope="row">13</th>
+                <td>Plik strony</td>
+                <td>{{ operatingSystemVm.pageFile }}</td>
+              </tr>
+              <tr [ngClass]='{green: (operatingSystemVm.windowsDir != lastAndChoosedParameters[0].operatingSystemVm[i].windowsDir)
+                || (operatingSystemVm.windowsDir != lastAndChoosedParameters[1].operatingSystemVm[i].windowsDir)}'>
+                <th scope="row">14</th>
+                <td>Folder instalacji</td>
+                <td>{{ operatingSystemVm.windowsDir }}</td>
+              </tr>
+              <tr [ngClass]='{green: (operatingSystemVm.directXVersion != lastAndChoosedParameters[0].operatingSystemVm[i].directXVersion)
+                || (operatingSystemVm.directXVersion != lastAndChoosedParameters[1].operatingSystemVm[i].directXVersion)}'>
+                <th scope="row">15</th>
+                <td>Werscja directx</td>
+                <td>{{ operatingSystemVm.directXVersion }}</td>
+              </tr>
+              <tr [ngClass]='{green: (operatingSystemVm.userDpiSettings != lastAndChoosedParameters[0].operatingSystemVm[i].userDpiSettings)
+                || (operatingSystemVm.userDpiSettings != lastAndChoosedParameters[1].operatingSystemVm[i].userDpiSettings)}'>
+                <th scope="row">16</th>
+                <td>Ustawienia DPI użytkownika</td>
+                <td>{{ operatingSystemVm.userDpiSettings }}</td>
+              </tr>
+              <tr [ngClass]='{green: (operatingSystemVm.systemDpiSettings != lastAndChoosedParameters[0].operatingSystemVm[i].systemDpiSettings)
+                || (operatingSystemVm.systemDpiSettings != lastAndChoosedParameters[1].operatingSystemVm[i].systemDpiSettings)}'>
+                <th scope="row">17</th>
+                <td>Ustawienia DPI systemu</td>
+                <td>{{ operatingSystemVm.systemDpiSettings }}</td>
+              </tr>
+            </tbody>
+          </table>
+          <table class="table table-dark" *ngIf="checkedBios">
+            <thead>
+              <tr>
+                <th colspan="3" scope="colgroup" class="table-tittle">
+                  <img id="image-table" src="/assets/images/bios.png" /> Bios
+                </th>
+              </tr>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Parametr</th>
+                <th scope="col">Wartość</th>
+              </tr>
+            </thead>
+            <tbody *ngFor="let biosVM of parameter.biosVM; let i = index" >
+              <tr [ngClass]='{green: (biosVM.biosVersion != lastAndChoosedParameters[0].biosVM[i].biosVersion)
+                || (biosVM.biosVersion != lastAndChoosedParameters[1].biosVM[i].biosVersion)}'>
+                <th scope="row">1</th>
+                <td>Wersja</td>
+                <td>{{ biosVM.biosVersion }}</td>
+              </tr>
+              <tr [ngClass]='{green: (biosVM.caption != lastAndChoosedParameters[0].biosVM[i].caption)
+                || (biosVM.caption != lastAndChoosedParameters[1].biosVM[i].caption)}'>
+                <th scope="row">2</th>
+                <td>Podpis</td>
+                <td>{{ biosVM.caption }}</td>
+              </tr>
+              <tr [ngClass]='{green: (biosVM.currentLanguage != lastAndChoosedParameters[0].biosVM[i].currentLanguage)
+                || (biosVM.currentLanguage != lastAndChoosedParameters[1].biosVM[i].currentLanguage)}'>
+                <th scope="row">3</th>
+                <td>Język</td>
+                <td>{{ biosVM.currentLanguage }}</td>
+              </tr>
+              <tr [ngClass]='{green: (biosVM.description != lastAndChoosedParameters[0].biosVM[i].description)
+                || (biosVM.description != lastAndChoosedParameters[1].biosVM[i].description)}'>
+                <th scope="row">4</th>
+                <td>Opis</td>
+                <td>{{ biosVM.description }}</td>
+              </tr>
+              <tr [ngClass]='{green: (biosVM.manufacturer != lastAndChoosedParameters[0].biosVM[i].manufacturer)
+                || (biosVM.manufacturer != lastAndChoosedParameters[1].biosVM[i].manufacturer)}'>
+                <th scope="row">5</th>
+                <td>Producent</td>
+                <td>{{ biosVM.manufacturer }}</td>
+              </tr>
+              <tr [ngClass]='{green: (biosVM.name != lastAndChoosedParameters[0].biosVM[i].name)
+                || (biosVM.name != lastAndChoosedParameters[1].biosVM[i].name)}'>
+                <th scope="row">6</th>
+                <td>Nazwa</td>
+                <td>{{ biosVM.name }}</td>
+              </tr>
+              <tr [ngClass]='{green: (biosVM.primaryBios != lastAndChoosedParameters[0].biosVM[i].primaryBios)
+                || (biosVM.primaryBios != lastAndChoosedParameters[1].biosVM[i].primaryBios)}'>
+                <th scope="row">7</th>
+                <td>Bios główny</td>
+                <td>{{ biosVM.primaryBios }}</td>
+              </tr>
+              <tr [ngClass]='{green: (biosVM.status != lastAndChoosedParameters[0].biosVM[i].status)
+                || (biosVM.status != lastAndChoosedParameters[1].biosVM[i].status)}'>
+                <th scope="row">8</th>
+                <td>Status</td>
+                <td>{{ biosVM.status }}</td>
+              </tr>
+            </tbody>
+          </table>
+      
+          <table class="table table-dark" *ngIf="checkedCaptureDevices">
+            <thead>
+              <tr>
+                <th colspan="3" scope="colgroup" class="table-tittle">
+                  <img
+                    id="image-table"
+                    src="/assets/images/capture-device.png"
+                  />Urządzenia przechwytujące
+                </th>
+              </tr>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Parametr</th>
+                <th scope="col">Wartość</th>
+              </tr>
+            </thead>
+            <tbody *ngFor="let captureDeviceVm of parameter.captureDeviceVm; let i = index">
+              <tr [ngClass]='{green: (captureDeviceVm.description != lastAndChoosedParameters[0].captureDeviceVm[i].description)
+                || (captureDeviceVm.description != lastAndChoosedParameters[1].captureDeviceVm[i].description)}'>
+                <th scope="row">1</th>
+                <td>Opis</td>
+                <td>{{ captureDeviceVm.description }}</td>
+              </tr>
+              <tr [ngClass]='{green: (captureDeviceVm.driverName != lastAndChoosedParameters[0].captureDeviceVm[i].driverName)
+                || (captureDeviceVm.driverName != lastAndChoosedParameters[1].captureDeviceVm[i].driverName)}'>
+                <th scope="row">2</th>
+                <td>Nazwa sterownika</td>
+                <td>{{ captureDeviceVm.driverName }}</td>
+              </tr>
+              <tr [ngClass]='{green: (captureDeviceVm.driverVersion != lastAndChoosedParameters[0].captureDeviceVm[i].driverVersion)
+                || (captureDeviceVm.driverVersion != lastAndChoosedParameters[1].captureDeviceVm[i].driverVersion)}'>
+                <th scope="row">3</th>
+                <td>Wersja sterownika</td>
+                <td>{{ captureDeviceVm.driverVersion }}</td>
+              </tr>
+              <tr [ngClass]='{green: (captureDeviceVm.driverDate != lastAndChoosedParameters[0].captureDeviceVm[i].driverDate)
+                || (captureDeviceVm.driverDate != lastAndChoosedParameters[1].captureDeviceVm[i].driverDate)}'>
+                <th scope="row">4</th>
+                <td>Data sterownika</td>
+                <td>{{ captureDeviceVm.driverDate }}</td>
+              </tr>
+            </tbody>
+          </table>
+      
+          <table class="table table-dark" *ngIf="checkedGraphics">
+            <thead>
+              <tr>
+                <th colspan="3" scope="colgroup" class="table-tittle">
+                  <img id="image-table" src="/assets/images/gpu.png" />Grafika
+                </th>
+              </tr>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Parametr</th>
+                <th scope="col">Wartość</th>
+              </tr>
+            </thead>
+            <tbody *ngFor="let displayDeviceVm of parameter.displayDeviceVm; let i = index">
+              <tr [ngClass]='{green: (displayDeviceVm.cardName != lastAndChoosedParameters[0].displayDeviceVm[i].cardName)
+                || (displayDeviceVm.cardName != lastAndChoosedParameters[1].displayDeviceVm[i].cardName)}'>
+                <th scope="row">1</th>
+                <td>Nazwa karty graficznej</td>
+                <td>{{ displayDeviceVm.cardName }}</td>
+              </tr>
+              <tr [ngClass]='{green: (displayDeviceVm.manufacturer != lastAndChoosedParameters[0].displayDeviceVm[i].manufacturer)
+                || (displayDeviceVm.manufacturer != lastAndChoosedParameters[1].displayDeviceVm[i].manufacturer)}'>
+                <th scope="row">2</th>
+                <td>Producent</td>
+                <td>{{ displayDeviceVm.manufacturer }}</td>
+              </tr>
+              <tr [ngClass]='{green: (displayDeviceVm.chipType != lastAndChoosedParameters[0].displayDeviceVm[i].chipType)
+                || (displayDeviceVm.chipType != lastAndChoosedParameters[1].displayDeviceVm[i].chipType)}'>
+                <th scope="row">3</th>
+                <td>Typ Czipu</td>
+                <td>{{ displayDeviceVm.chipType }}</td>
+              </tr>
+              <tr [ngClass]='{green: (displayDeviceVm.dacType != lastAndChoosedParameters[0].displayDeviceVm[i].dacType)
+                || (displayDeviceVm.dacType != lastAndChoosedParameters[1].displayDeviceVm[i].dacType)}'>
+                <th scope="row">4</th>
+                <td>Typ DAC</td>
+                <td>{{ displayDeviceVm.dacType }}</td>
+              </tr>
+              <tr [ngClass]='{green: (displayDeviceVm.deviceType != lastAndChoosedParameters[0].displayDeviceVm[i].deviceType)
+                || (displayDeviceVm.deviceType != lastAndChoosedParameters[1].displayDeviceVm[i].deviceType)}'>
+                <th scope="row">5</th>
+                <td>Typ urządzenia</td>
+                <td>{{ displayDeviceVm.deviceType }}</td>
+              </tr>
+              <tr [ngClass]='{green: (displayDeviceVm.deviceKey != lastAndChoosedParameters[0].displayDeviceVm[i].deviceKey)
+                || (displayDeviceVm.deviceKey != lastAndChoosedParameters[1].displayDeviceVm[i].deviceKey)}'>
+                <th scope="row">6</th>
+                <td>Klucz urządzenia</td>
+                <td>{{ displayDeviceVm.deviceKey }}</td>
+              </tr>
+              <tr [ngClass]='{green: (displayDeviceVm.displayMemory != lastAndChoosedParameters[0].displayDeviceVm[i].displayMemory)
+                || (displayDeviceVm.displayMemory != lastAndChoosedParameters[1].displayDeviceVm[i].displayMemory)}'>
+                <th scope="row">7</th>
+                <td>Pamięc wyświetlacza</td>
+                <td>{{ displayDeviceVm.displayMemory }}</td>
+              </tr>
+              <tr [ngClass]='{green: (displayDeviceVm.dedicatedMemory != lastAndChoosedParameters[0].displayDeviceVm[i].dedicatedMemory)
+                || (displayDeviceVm.dedicatedMemory != lastAndChoosedParameters[1].displayDeviceVm[i].dedicatedMemory)}'>
+                <th scope="row">8</th>
+                <td>Pamięć dedykowana</td>
+                <td>{{ displayDeviceVm.dedicatedMemory }}</td>
+              </tr>
+              <tr [ngClass]='{green: (displayDeviceVm.sharedMemory != lastAndChoosedParameters[0].displayDeviceVm[i].sharedMemory)
+                || (displayDeviceVm.sharedMemory != lastAndChoosedParameters[1].displayDeviceVm[i].sharedMemory)}'>
+                <th scope="row">9</th>
+                <td>Pamięc dzielona</td>
+                <td>{{ displayDeviceVm.sharedMemory }}</td>
+              </tr>
+              <tr [ngClass]='{green: (displayDeviceVm.currentMode != lastAndChoosedParameters[0].displayDeviceVm[i].currentMode)
+                || (displayDeviceVm.currentMode != lastAndChoosedParameters[1].displayDeviceVm[i].currentMode)}'>
+                <th scope="row">10</th>
+                <td>Obecny tryb</td>
+                <td>{{ displayDeviceVm.currentMode }}</td>
+              </tr>
+              <tr [ngClass]='{green: (displayDeviceVm.hdrSupport != lastAndChoosedParameters[0].displayDeviceVm[i].hdrSupport)
+                || (displayDeviceVm.hdrSupport != lastAndChoosedParameters[1].displayDeviceVm[i].hdrSupport)}'>
+                <th scope="row">11</th>
+                <td>Wsparcie HDR</td>
+                <td>{{ displayDeviceVm.hdrSupport }}</td>
+              </tr>
+              <tr [ngClass]='{green: (displayDeviceVm.driverName != lastAndChoosedParameters[0].displayDeviceVm[i].driverName)
+                || (displayDeviceVm.driverName != lastAndChoosedParameters[1].displayDeviceVm[i].driverName)}'>
+                <th scope="row">12</th>
+                <td>Nazwa sterownika</td>
+                <td>{{ displayDeviceVm.driverName }}</td>
+              </tr>
+              <tr [ngClass]='{green: (displayDeviceVm.driverVersion != lastAndChoosedParameters[0].displayDeviceVm[i].driverVersion)
+                || (displayDeviceVm.driverVersion != lastAndChoosedParameters[1].displayDeviceVm[i].driverVersion)}'>
+                <th scope="row">13</th>
+                <td>Wersja sterownika</td>
+                <td>{{ displayDeviceVm.driverVersion }}</td>
+              </tr>
+              <tr [ngClass]='{green: (displayDeviceVm.driverModel != lastAndChoosedParameters[0].displayDeviceVm[i].driverModel)
+                || (displayDeviceVm.driverModel != lastAndChoosedParameters[1].displayDeviceVm[i].driverModel)}'>
+                <th scope="row">14</th>
+                <td>Model sterownika</td>
+                <td>{{ displayDeviceVm.driverModel }}</td>
+              </tr>
+              <tr [ngClass]='{green: (displayDeviceVm.driverDate != lastAndChoosedParameters[0].displayDeviceVm[i].driverDate)
+                || (displayDeviceVm.driverDate != lastAndChoosedParameters[1].displayDeviceVm[i].driverDate)}'>
+                <th scope="row">15</th>
+                <td>Data sterownika</td>
+                <td>{{ displayDeviceVm.driverDate }}</td>
+              </tr>
+              <tr [ngClass]='{green: (displayDeviceVm.vendorId != lastAndChoosedParameters[0].displayDeviceVm[i].vendorId)
+                || (displayDeviceVm.vendorId != lastAndChoosedParameters[1].displayDeviceVm[i].vendorId)}'>
+                <th scope="row">16</th>
+                <td>Id sprzedawcy</td>
+                <td>{{ displayDeviceVm.vendorId }}</td>
+              </tr>
+              <tr [ngClass]='{green: (displayDeviceVm.deviceId != lastAndChoosedParameters[0].displayDeviceVm[i].deviceId)
+                || (displayDeviceVm.deviceId != lastAndChoosedParameters[1].displayDeviceVm[i].deviceId)}'>
+                <th scope="row">17</th>
+                <td>Id urządzenia</td>
+                <td>{{ displayDeviceVm.deviceId }}</td>
+              </tr>
+              <tr [ngClass]='{green: (displayDeviceVm.topology != lastAndChoosedParameters[0].displayDeviceVm[i].topology)
+                || (displayDeviceVm.topology != lastAndChoosedParameters[1].displayDeviceVm[i].topology)}'>
+                <th scope="row">18</th>
+                <td>Topologia</td>
+                <td>{{ displayDeviceVm.topology }}</td>
+              </tr>
+              <tr [ngClass]='{green: (displayDeviceVm.colorSpace != lastAndChoosedParameters[0].displayDeviceVm[i].colorSpace)
+                || (displayDeviceVm.colorSpace != lastAndChoosedParameters[1].displayDeviceVm[i].colorSpace)}'>
+                <th scope="row">19</th>
+                <td>Przestrzeń kolorów</td>
+                <td>{{ displayDeviceVm.colorSpace }}</td>
+              </tr>
+              <tr [ngClass]='{green: (displayDeviceVm.colorPrimaries != lastAndChoosedParameters[0].displayDeviceVm[i].colorPrimaries)
+                || (displayDeviceVm.colorPrimaries != lastAndChoosedParameters[1].displayDeviceVm[i].colorPrimaries)}'>
+                <th scope="row">20</th>
+                <td>Kolory podstawowe</td>
+                <td>{{ displayDeviceVm.colorPrimaries }}</td>
+              </tr>
+              <tr [ngClass]='{green: (displayDeviceVm.luminance != lastAndChoosedParameters[0].displayDeviceVm[i].luminance)
+                || (displayDeviceVm.luminance != lastAndChoosedParameters[1].displayDeviceVm[i].luminance)}'>
+                <th scope="row">21</th>
+                <td>Luminacja</td>
+                <td>{{ displayDeviceVm.luminance }}</td>
+              </tr>
+              <tr [ngClass]='{green: (displayDeviceVm.monitorName != lastAndChoosedParameters[0].displayDeviceVm[i].monitorName)
+                || (displayDeviceVm.monitorName != lastAndChoosedParameters[1].displayDeviceVm[i].monitorName)}'>
+                <th scope="row">22</th>
+                <td>Nazwa monitora</td>
+                <td>{{ displayDeviceVm.monitorName }}</td>
+              </tr>
+              <tr [ngClass]='{green: (displayDeviceVm.monitorModel != lastAndChoosedParameters[0].displayDeviceVm[i].monitorModel)
+                || (displayDeviceVm.monitorModel != lastAndChoosedParameters[1].displayDeviceVm[i].monitorModel)}'>
+                <th scope="row">23</th>
+                <td>Model monitora</td>
+                <td>{{ displayDeviceVm.monitorModel }}</td>
+              </tr>
+              <tr [ngClass]='{green: (displayDeviceVm.monitorId != lastAndChoosedParameters[0].displayDeviceVm[i].monitorId)
+                || (displayDeviceVm.monitorId != lastAndChoosedParameters[1].displayDeviceVm[i].monitorId)}'>
+                <th scope="row">24</th>
+                <td>Id monitora</td>
+                <td>{{ displayDeviceVm.monitorId }}</td>
+              </tr>
+              <tr [ngClass]='{green: (displayDeviceVm.outputType != lastAndChoosedParameters[0].displayDeviceVm[i].outputType)
+                || (displayDeviceVm.outputType != lastAndChoosedParameters[1].displayDeviceVm[i].outputType)}'>
+                <th scope="row">25</th>
+                <td>Typ wyjścia</td>
+                <td>{{ displayDeviceVm.outputType }}</td>
+              </tr>
+              <tr [ngClass]='{green: (displayDeviceVm.advancedColorEnabled != lastAndChoosedParameters[0].displayDeviceVm[i].advancedColorEnabled)
+                || (displayDeviceVm.advancedColorEnabled != lastAndChoosedParameters[1].displayDeviceVm[i].advancedColorEnabled)}'>
+                <th scope="row">26</th>
+                <td>Wlączone zaawansowanych kolrów</td>
+                <td>{{ displayDeviceVm.advancedColorEnabled }}</td>
+              </tr>
+              <tr [ngClass]='{green: (displayDeviceVm.advancedColorSupported != lastAndChoosedParameters[0].displayDeviceVm[i].advancedColorSupported)
+                || (displayDeviceVm.advancedColorSupported != lastAndChoosedParameters[1].displayDeviceVm[i].advancedColorSupported)}'>
+                <th scope="row">27</th>
+                <td>Wsparcie zaawansowanych kolorów</td>
+                <td>{{ displayDeviceVm.advancedColorSupported }}</td>
+              </tr>
+              <tr [ngClass]='{green: (displayDeviceVm.pixelFormat != lastAndChoosedParameters[0].displayDeviceVm[i].pixelFormat)
+                || (displayDeviceVm.pixelFormat != lastAndChoosedParameters[1].displayDeviceVm[i].pixelFormat)}'>
+                <th scope="row">28</th>
+                <td>Format pikseli</td>
+                <td>{{ displayDeviceVm.pixelFormat }}</td>
+              </tr>
+              <tr [ngClass]='{green: (displayDeviceVm.maxResolution != lastAndChoosedParameters[0].displayDeviceVm[i].maxResolution)
+                || (displayDeviceVm.maxResolution != lastAndChoosedParameters[1].displayDeviceVm[i].maxResolution)}'>
+                <th scope="row">29</th>
+                <td>Maksymalna rozdzielczość</td>
+                <td>{{ displayDeviceVm.maxResolution }}</td>
+              </tr>
+            </tbody>
+          </table>
+      
+          <table class="table table-dark" *ngIf="checkedHardDrive">
+            <thead>
+              <tr>
+                <th colspan="3" scope="colgroup" class="table-tittle">
+                  <img id="image-table" src="/assets/images/hard-drive.png" />Dysk
+                  twardy
+                </th>
+              </tr>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Parametr</th>
+                <th scope="col">Wartość</th>
+              </tr>
+            </thead>
+            <tbody *ngFor="let hardDriveVm of parameter.hardDriveVm; let i = index">
+              <tr [ngClass]='{green: (hardDriveVm.driveLetter != lastAndChoosedParameters[0].hardDriveVm[i].driveLetter)
+                || (hardDriveVm.driveLetter != lastAndChoosedParameters[1].hardDriveVm[i].driveLetter)}'>
+                <th scope="row">1</th>
+                <td>Litera dysku</td>
+                <td>{{ hardDriveVm.driveLetter }}</td>
+              </tr>
+              <tr [ngClass]='{green: (hardDriveVm.freeSpace != lastAndChoosedParameters[0].hardDriveVm[i].freeSpace)
+                || (hardDriveVm.freeSpace != lastAndChoosedParameters[1].hardDriveVm[i].freeSpace)}'>
+                <th scope="row">2</th>
+                <td>Wole miejsce</td>
+                <td>{{ hardDriveVm.freeSpace }} MB</td>
+              </tr>
+              <tr [ngClass]='{green: (hardDriveVm.maxSpace != lastAndChoosedParameters[0].hardDriveVm[i].maxSpace)
+                || (hardDriveVm.maxSpace != lastAndChoosedParameters[1].hardDriveVm[i].maxSpace)}'>
+                <th scope="row">3</th>
+                <td>Pojemność dysku</td>
+                <td>{{ hardDriveVm.maxSpace }} MB</td>
+              </tr>
+              <tr [ngClass]='{green: (hardDriveVm.fileSystem != lastAndChoosedParameters[0].hardDriveVm[i].fileSystem)
+                || (hardDriveVm.fileSystem != lastAndChoosedParameters[1].hardDriveVm[i].fileSystem)}'>
+                <th scope="row">4</th>
+                <td>System plików</td>
+                <td>{{ hardDriveVm.fileSystem }}</td>
+              </tr>
+              <tr [ngClass]='{green: (hardDriveVm.model != lastAndChoosedParameters[0].hardDriveVm[i].model)
+                || (hardDriveVm.model != lastAndChoosedParameters[1].hardDriveVm[i].model)}'>
+                <th scope="row">5</th>
+                <td>Model</td>
+                <td>{{ hardDriveVm.model }}</td>
+              </tr>
+              <tr [ngClass]='{green: (hardDriveVm.pnpDeviceId != lastAndChoosedParameters[0].hardDriveVm[i].pnpDeviceId)
+                || (hardDriveVm.pnpDeviceId != lastAndChoosedParameters[1].hardDriveVm[i].pnpDeviceId)}'>
+                <th scope="row">6</th>
+                <td>Id PNP urządzenia</td>
+                <td>{{ hardDriveVm.pnpDeviceId }}</td>
+              </tr>
+              <tr [ngClass]='{green: (hardDriveVm.hardDriveIndex != lastAndChoosedParameters[0].hardDriveVm[i].hardDriveIndex)
+                || (hardDriveVm.hardDriveIndex != lastAndChoosedParameters[1].hardDriveVm[i].hardDriveIndex)}'>
+                <th scope="row">7</th>
+                <td>Index dysku twardego</td>
+                <td>{{ hardDriveVm.hardDriveIndex }}</td>
+              </tr>
+            </tbody>
+          </table>
+      
+          <table class="table table-dark" *ngIf="checkedInputDevices">
+            <thead>
+              <tr>
+                <th colspan="3" scope="colgroup" class="table-tittle">
+                  <img
+                    id="image-table"
+                    src="/assets/images/input-devices.png"
+                  />Urządzenia wejścia
+                </th>
+              </tr>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Parametr</th>
+                <th scope="col">Wartość</th>
+              </tr>
+            </thead>
+            <tbody *ngFor="let directInputDeviceVm of parameter.directInputDeviceVm; let i = index">
+              <tr  [ngClass]='{green: (directInputDeviceVm.deviceName != lastAndChoosedParameters[0].directInputDeviceVm[i].deviceName)
+                || (directInputDeviceVm.deviceName != lastAndChoosedParameters[1].directInputDeviceVm[i].deviceName)}'>
+                <th scope="row">1</th>
+                <td>Nazwa urządzenia</td>
+                <td>{{ directInputDeviceVm.deviceName }}</td>
+              </tr>
+              <tr [ngClass]='{green: (directInputDeviceVm.attached != lastAndChoosedParameters[0].directInputDeviceVm[i].attached)
+                || (directInputDeviceVm.attached != lastAndChoosedParameters[1].directInputDeviceVm[i].attached)}'>
+                <th scope="row">2</th>
+                <td>Podłączony</td>
+                <td>{{ directInputDeviceVm.attached }}</td>
+              </tr>
+              <tr [ngClass]='{green: (directInputDeviceVm.vendorId != lastAndChoosedParameters[0].directInputDeviceVm[i].vendorId)
+                || (directInputDeviceVm.vendorId != lastAndChoosedParameters[1].directInputDeviceVm[i].vendorId)}'>
+                <th scope="row">3</th>
+                <td>Id sprzedawcy</td>
+                <td>{{ directInputDeviceVm.vendorId }}</td>
+              </tr>
+              <tr [ngClass]='{green: (directInputDeviceVm.productId != lastAndChoosedParameters[0].directInputDeviceVm[i].productId)
+                || (directInputDeviceVm.productId != lastAndChoosedParameters[1].directInputDeviceVm[i].productId)}'>
+                <th scope="row">4</th>
+                <td>Id produktu</td>
+                <td>{{ directInputDeviceVm.productId }}</td>
+              </tr>
+            </tbody>
+          </table>
+      
+          <table class="table table-dark" *ngIf="checkedInternalMemory">
+            <thead>
+              <tr>
+                <th colspan="3" scope="colgroup" class="table-tittle">
+                  <img id="image-table" src="/assets/images/ram.png" />Pamięć RAM
+                </th>
+              </tr>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Parametr</th>
+                <th scope="col">Wartość</th>
+              </tr>
+            </thead>
+            <tbody *ngFor="let internalMemoryVm of parameter.internalMemoryVm; let i = index">
+              <tr [ngClass]='{green: (internalMemoryVm.manufacturer != lastAndChoosedParameters[0].internalMemoryVm[i].manufacturer)
+                || (internalMemoryVm.manufacturer != lastAndChoosedParameters[1].internalMemoryVm[i].manufacturer)}'>
+                <th scope="row">1</th>
+                <td>Producent</td>
+                <td>{{ internalMemoryVm.manufacturer }}</td>
+              </tr>
+              <tr [ngClass]='{green: (internalMemoryVm.bankLabel != lastAndChoosedParameters[0].internalMemoryVm[i].bankLabel)
+                || (internalMemoryVm.bankLabel != lastAndChoosedParameters[1].internalMemoryVm[i].bankLabel)}'>
+                <th scope="row">2</th>
+                <td>Etykieta slotu</td>
+                <td>{{ internalMemoryVm.bankLabel }}</td>
+              </tr>
+              <tr [ngClass]='{green: (internalMemoryVm.serialNumber != lastAndChoosedParameters[0].internalMemoryVm[i].serialNumber)
+                || (internalMemoryVm.serialNumber != lastAndChoosedParameters[1].internalMemoryVm[i].serialNumber)}'>
+                <th scope="row">3</th>
+                <td>Numer seryjny</td>
+                <td>{{ internalMemoryVm.serialNumber }}</td>
+              </tr>
+              <tr [ngClass]='{green: (internalMemoryVm.caption != lastAndChoosedParameters[0].internalMemoryVm[i].caption)
+                || (internalMemoryVm.caption != lastAndChoosedParameters[1].internalMemoryVm[i].caption)}'>
+                <th scope="row">4</th>
+                <td>Podpis</td>
+                <td>{{ internalMemoryVm.caption }}</td>
+              </tr>
+              <tr [ngClass]='{green: (internalMemoryVm.description != lastAndChoosedParameters[0].internalMemoryVm[i].description)
+                || (internalMemoryVm.description != lastAndChoosedParameters[1].internalMemoryVm[i].description)}'>
+                <th scope="row">5</th>
+                <td>Opis</td>
+                <td>{{ internalMemoryVm.description }}</td>
+              </tr>
+              <tr [ngClass]='{green: (internalMemoryVm.name != lastAndChoosedParameters[0].internalMemoryVm[i].name)
+                || (internalMemoryVm.name != lastAndChoosedParameters[1].internalMemoryVm[i].name)}'>
+                <th scope="row">6</th>
+                <td>Nazwa</td>
+                <td>{{ internalMemoryVm.name }}</td>
+              </tr>
+              <tr [ngClass]='{green: (internalMemoryVm.deviceLocator != lastAndChoosedParameters[0].internalMemoryVm[i].deviceLocator)
+                || (internalMemoryVm.deviceLocator != lastAndChoosedParameters[1].internalMemoryVm[i].deviceLocator)}'>
+                <th scope="row">7</th>
+                <td>Lokalizator urządzenia</td>
+                <td>{{ internalMemoryVm.deviceLocator }}</td>
+              </tr>
+              <tr [ngClass]='{green: (internalMemoryVm.capacity != lastAndChoosedParameters[0].internalMemoryVm[i].capacity)
+                || (internalMemoryVm.capacity != lastAndChoosedParameters[1].internalMemoryVm[i].capacity)}'>
+                <th scope="row">8</th>
+                <td>Pojemność</td>
+                <td>{{ internalMemoryVm.capacity }} MB</td>
+              </tr>
+              <tr [ngClass]='{green: (internalMemoryVm.memoryType != lastAndChoosedParameters[0].internalMemoryVm[i].memoryType)
+                || (internalMemoryVm.memoryType != lastAndChoosedParameters[1].internalMemoryVm[i].memoryType)}'>
+                <th scope="row">9</th>
+                <td>Typ pamięci</td>
+                <td>{{ internalMemoryVm.memoryType }}</td>
+              </tr>
+              <tr [ngClass]='{green: (internalMemoryVm.typeDetail != lastAndChoosedParameters[0].internalMemoryVm[i].typeDetail)
+                || (internalMemoryVm.typeDetail != lastAndChoosedParameters[1].internalMemoryVm[i].typeDetail)}'>
+                <th scope="row">10</th>
+                <td>Typ</td>
+                <td>{{ internalMemoryVm.typeDetail }}</td>
+              </tr>
+              <tr [ngClass]='{green: (internalMemoryVm.speed != lastAndChoosedParameters[0].internalMemoryVm[i].speed)
+                || (internalMemoryVm.speed != lastAndChoosedParameters[1].internalMemoryVm[i].speed)}'>
+                <th scope="row">11</th>
+                <td>Prędkość</td>
+                <td>{{ internalMemoryVm.speed }} Mhz</td>
+              </tr>
+              <tr [ngClass]='{green: (internalMemoryVm.status != lastAndChoosedParameters[0].internalMemoryVm[i].status)
+                || (internalMemoryVm.status != lastAndChoosedParameters[1].internalMemoryVm[i].status)}'>
+                <th scope="row">12</th>
+                <td>Status</td>
+                <td>{{ internalMemoryVm.status }}</td>
+              </tr>
+            </tbody>
+          </table>
+      
+          <table class="table table-dark" *ngIf="checkedNetwork">
+            <thead>
+              <tr>
+                <th colspan="3" scope="colgroup" class="table-tittle">
+                  <img id="image-table" src="/assets/images/network-card.png" />Karta
+                  sieciowa
+                </th>
+              </tr>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Parametr</th>
+                <th scope="col">Wartość</th>
+              </tr>
+            </thead>
+            <tbody *ngFor="let networkCardVms of parameter.networkCardVms; let i = index">
+              <tr [ngClass]='{green: (networkCardVms.adapterType != lastAndChoosedParameters[0].networkCardVms[i].adapterType)
+                || (networkCardVms.adapterType != lastAndChoosedParameters[1].networkCardVms[i].adapterType)}'>
+                <th scope="row">1</th>
+                <td>Typ adaptera</td>
+                <td>{{ networkCardVms.adapterType }}</td>
+              </tr>
+              <tr [ngClass]='{green: (networkCardVms.name != lastAndChoosedParameters[0].networkCardVms[i].name)
+                || (networkCardVms.name != lastAndChoosedParameters[1].networkCardVms[i].name)}'>
+                <th scope="row">2</th>
+                <td>Nazwa</td>
+                <td>{{ networkCardVms.name }}</td>
+              </tr>
+              <tr [ngClass]='{green: (networkCardVms.description != lastAndChoosedParameters[0].networkCardVms[i].description)
+                || (networkCardVms.description != lastAndChoosedParameters[1].networkCardVms[i].description)}'>
+                <th scope="row">3</th>
+                <td>Opis</td>
+                <td>{{ networkCardVms.description }}</td>
+              </tr>
+              <tr [ngClass]='{green: (networkCardVms.caption != lastAndChoosedParameters[0].networkCardVms[i].caption)
+                || (networkCardVms.caption != lastAndChoosedParameters[1].networkCardVms[i].caption)}'>
+                <th scope="row">4</th>
+                <td>Podpis</td>
+                <td>{{ networkCardVms.caption }}</td>
+              </tr>
+              <tr [ngClass]='{green: (networkCardVms.installed != lastAndChoosedParameters[0].networkCardVms[i].installed)
+                || (networkCardVms.installed != lastAndChoosedParameters[1].networkCardVms[i].installed)}'>
+                <th scope="row">5</th>
+                <td>Zainstalowane</td>
+                <td>{{ networkCardVms.installed }}</td>
+              </tr>
+              <tr [ngClass]='{green: (networkCardVms.installDate != lastAndChoosedParameters[0].networkCardVms[i].installDate)
+                || (networkCardVms.installDate != lastAndChoosedParameters[1].networkCardVms[i].installDate)}'>
+                <th scope="row">6</th>
+                <td>Data instalacji</td>
+                <td>{{ networkCardVms.installDate }}</td>
+              </tr>
+              <tr [ngClass]='{green: (networkCardVms.manufacturer != lastAndChoosedParameters[0].networkCardVms[i].manufacturer)
+                || (networkCardVms.manufacturer != lastAndChoosedParameters[1].networkCardVms[i].manufacturer)}'>
+                <th scope="row">7</th>
+                <td>Producent</td>
+                <td>{{ networkCardVms.manufacturer }}</td>
+              </tr>
+              <tr [ngClass]='{green: (networkCardVms.pnpDeviceId != lastAndChoosedParameters[0].networkCardVms[i].pnpDeviceId)
+                || (networkCardVms.pnpDeviceId != lastAndChoosedParameters[1].networkCardVms[i].pnpDeviceId)}'>
+                <th scope="row">8</th>
+                <td>Id PNP urządzenia</td>
+                <td>{{ networkCardVms.pnpDeviceId }}</td>
+              </tr>
+              <tr [ngClass]='{green: (networkCardVms.macAddress != lastAndChoosedParameters[0].networkCardVms[i].macAddress)
+                || (networkCardVms.macAddress != lastAndChoosedParameters[1].networkCardVms[i].macAddress)}'>
+                <th scope="row">9</th>
+                <td>Adres MAC</td>
+                <td>{{ networkCardVms.macAddress }}</td>
+              </tr>
+              <tr [ngClass]='{green: (networkCardVms.lastErrorCode != lastAndChoosedParameters[0].networkCardVms[i].lastErrorCode)
+                || (networkCardVms.lastErrorCode != lastAndChoosedParameters[1].networkCardVms[i].lastErrorCode)}'>
+                <th scope="row">10</th>
+                <td>Ostatni status błędu</td>
+                <td>{{ networkCardVms.lastErrorCode }}</td>
+              </tr>
+              <tr [ngClass]='{green: (networkCardVms.maxSpeed != lastAndChoosedParameters[0].networkCardVms[i].maxSpeed)
+                || (networkCardVms.maxSpeed != lastAndChoosedParameters[1].networkCardVms[i].maxSpeed)}'>
+                <th scope="row">11</th>
+                <td>Maksymalna prędkość</td>
+                <td>{{ networkCardVms.maxSpeed }}</td>
+              </tr>
+              <tr [ngClass]='{green: (networkCardVms.powerManagementSupported != lastAndChoosedParameters[0].networkCardVms[i].powerManagementSupported)
+                || (networkCardVms.powerManagementSupported != lastAndChoosedParameters[1].networkCardVms[i].powerManagementSupported)}'>
+                <th scope="row">12</th>
+                <td>Obsługiwanie zarządzania energią</td>
+                <td>{{ networkCardVms.powerManagementSupported }}</td>
+              </tr>
+              <tr [ngClass]='{green: (networkCardVms.speed != lastAndChoosedParameters[0].networkCardVms[i].speed)
+                || (networkCardVms.speed != lastAndChoosedParameters[1].networkCardVms[i].speed)}'>
+                <th scope="row">13</th>
+                <td>Prędkość</td>
+                <td>{{ networkCardVms.speed }}</td>
+              </tr>
+              <tr [ngClass]='{green: (networkCardVms.status != lastAndChoosedParameters[0].networkCardVms[i].status)
+                || (networkCardVms.status != lastAndChoosedParameters[1].networkCardVms[i].status)}'>
+                <th scope="row">14</th>
+                <td>Status</td>
+                <td>{{ networkCardVms.status }}</td>
+              </tr>
+              <tr [ngClass]='{green: (networkCardVms.netEnabled != lastAndChoosedParameters[0].networkCardVms[i].netEnabled)
+                || (networkCardVms.netEnabled != lastAndChoosedParameters[1].networkCardVms[i].netEnabled)}'>
+                <th scope="row">15</th>
+                <td>Włączona sieć</td>
+                <td>{{ networkCardVms.netEnabled }}</td>
+              </tr>
+              <tr [ngClass]='{green: (networkCardVms.netConnectionStatus != lastAndChoosedParameters[0].networkCardVms[i].netConnectionStatus)
+                || (networkCardVms.netConnectionStatus != lastAndChoosedParameters[1].networkCardVms[i].netConnectionStatus)}'>
+                <th scope="row">16</th>
+                <td>Status połączenia sieci</td>
+                <td>{{ networkCardVms.netConnectionStatus }}</td>
+              </tr>
+              <tr [ngClass]='{green: (networkCardVms.networkAddresses != lastAndChoosedParameters[0].networkCardVms[i].networkAddresses)
+                || (networkCardVms.networkAddresses != lastAndChoosedParameters[1].networkCardVms[i].networkAddresses)}'>
+                <th scope="row">17</th>
+                <td>Adres sieci</td>
+                <td>{{ networkCardVms.networkAddresses }}</td>
+              </tr>
+              <tr [ngClass]='{green: (networkCardVms.permanentAddress != lastAndChoosedParameters[0].networkCardVms[i].permanentAddress)
+                || (networkCardVms.permanentAddress != lastAndChoosedParameters[1].networkCardVms[i].permanentAddress)}'>
+                <th scope="row">18</th>
+                <td>Adres stały</td>
+                <td>{{ networkCardVms.permanentAddress }}</td>
+              </tr>
+              <tr [ngClass]='{green: (networkCardVms.productName != lastAndChoosedParameters[0].networkCardVms[i].productName)
+                || (networkCardVms.productName != lastAndChoosedParameters[1].networkCardVms[i].productName)}'>
+                <th scope="row">19</th>
+                <td>Nazwa produktu</td>
+                <td>{{ networkCardVms.productName }}</td>
+              </tr>
+            </tbody>
+          </table>
+      
+          <table class="table table-dark" *ngIf="checkedProcesor">
+            <thead>
+              <tr>
+                <th colspan="3" scope="colgroup" class="table-tittle">
+                  <img id="image-table" src="/assets/images/cpu.png" />Procesor
+                </th>
+              </tr>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Parametr</th>
+                <th scope="col">Wartość</th>
+              </tr>
+            </thead>
+            <tbody *ngFor="let processorVm of parameter.processorVm; let i = index">
+              <tr [ngClass]='{green: (processorVm.currentClockSpeed != lastAndChoosedParameters[0].processorVm[i].currentClockSpeed)
+                || (processorVm.currentClockSpeed != lastAndChoosedParameters[1].processorVm[i].currentClockSpeed)}'>
+                <th scope="row">1</th>
+                <td>Szybkość zegara</td>
+                <td>{{ processorVm.currentClockSpeed }} Mhz</td>
+              </tr>
+              <tr [ngClass]='{green: (processorVm.description != lastAndChoosedParameters[0].processorVm[i].description)
+                || (processorVm.description != lastAndChoosedParameters[1].processorVm[i].description)}'>
+                <th scope="row">2</th>
+                <td>Opis</td>
+                <td>{{ processorVm.description }}</td>
+              </tr>
+              <tr [ngClass]='{green: (processorVm.l2CacheSize != lastAndChoosedParameters[0].processorVm[i].l2CacheSize)
+                || (processorVm.l2CacheSize != lastAndChoosedParameters[1].processorVm[i].l2CacheSize)}'>
+                <th scope="row">3</th>
+                <td>Rozmiar pamięci l2</td>
+                <td>{{ processorVm.l2CacheSize }} MB</td>
+              </tr>
+              <tr [ngClass]='{green: (processorVm.l2CacheSpeed != lastAndChoosedParameters[0].processorVm[i].l2CacheSpeed)
+                || (processorVm.l2CacheSpeed != lastAndChoosedParameters[1].processorVm[i].l2CacheSpeed)}'>
+                <th scope="row">4</th>
+                <td>Szybkość pamięci l2</td>
+                <td>{{ processorVm.l2CacheSpeed }} Mhz</td>
+              </tr>
+              <tr [ngClass]='{green: (processorVm.l3CacheSize != lastAndChoosedParameters[0].processorVm[i].l3CacheSize)
+                || (processorVm.l3CacheSize != lastAndChoosedParameters[1].processorVm[i].l3CacheSize)}'>
+                <th scope="row">5</th>
+                <td>Rozmiar pamięci l3</td>
+                <td>{{ processorVm.l3CacheSize }} MB</td>
+              </tr>
+              <tr [ngClass]='{green: (processorVm.l3CacheSpeed != lastAndChoosedParameters[0].processorVm[i].l3CacheSpeed)
+                || (processorVm.l3CacheSpeed != lastAndChoosedParameters[1].processorVm[i].l3CacheSpeed)}'>
+                <th scope="row">6</th>
+                <td>Szybkość pamięci l3</td>
+                <td>{{ processorVm.l3CacheSpeed }} Mhz</td>
+              </tr>
+              <tr [ngClass]='{green: (processorVm.manufacturer != lastAndChoosedParameters[0].processorVm[i].manufacturer)
+                || (processorVm.manufacturer != lastAndChoosedParameters[1].processorVm[i].manufacturer)}'>
+                <th scope="row">7</th>
+                <td>Producent</td>
+                <td>{{ processorVm.manufacturer }}</td>
+              </tr>
+              <tr [ngClass]='{green: (processorVm.maxClockSpeed != lastAndChoosedParameters[0].processorVm[i].maxClockSpeed)
+                || (processorVm.maxClockSpeed != lastAndChoosedParameters[1].processorVm[i].maxClockSpeed)}'>
+                <th scope="row">8</th>
+                <td>Maksymalna prędkość zegara</td>
+                <td>{{ processorVm.maxClockSpeed }} Mhz</td>
+              </tr>
+              <tr [ngClass]='{green: (processorVm.name != lastAndChoosedParameters[0].processorVm[i].name)
+                || (processorVm.name != lastAndChoosedParameters[1].processorVm[i].name)}'>
+                <th scope="row">9</th>
+                <td>Nazwa</td>
+                <td>{{ processorVm.name }}</td>
+              </tr>
+              <tr [ngClass]='{green: (processorVm.numberOfCores != lastAndChoosedParameters[0].processorVm[i].numberOfCores)
+                || (processorVm.numberOfCores != lastAndChoosedParameters[1].processorVm[i].numberOfCores)}'>
+                <th scope="row">10</th>
+                <td>Ilość rdzeni</td>
+                <td>{{ processorVm.numberOfCores }}</td>
+              </tr>
+              <tr [ngClass]='{green: (processorVm.numberOfEnabledCores != lastAndChoosedParameters[0].processorVm[i].numberOfEnabledCores)
+                || (processorVm.numberOfEnabledCores != lastAndChoosedParameters[1].processorVm[i].numberOfEnabledCores)}'>
+                <th scope="row">11</th>
+                <td>Ilość dostępnych rdzeni</td>
+                <td>{{ processorVm.numberOfEnabledCores }}</td>
+              </tr>
+              <tr [ngClass]='{green: (processorVm.numberOfLogicalProcessors != lastAndChoosedParameters[0].processorVm[i].numberOfLogicalProcessors)
+                || (processorVm.numberOfLogicalProcessors != lastAndChoosedParameters[1].processorVm[i].numberOfLogicalProcessors)}'>
+                <th scope="row">12</th>
+                <td>Ilość procesorów logicznych</td>
+                <td>{{ processorVm.numberOfLogicalProcessors }}</td>
+              </tr>
+              <tr [ngClass]='{green: (processorVm.status != lastAndChoosedParameters[0].processorVm[i].status)
+                || (processorVm.status != lastAndChoosedParameters[1].processorVm[i].status)}'>
+                <th scope="row">13</th>
+                <td>Status</td>
+                <td>{{ processorVm.status }}</td>
+              </tr>
+            </tbody>
+          </table>
+      
+          <table class="table table-dark" *ngIf="checkedPs2Devices">
+            <thead>
+              <tr>
+                <th colspan="3" scope="colgroup" class="table-tittle">
+                  <img id="image-table" src="/assets/images/ps2.png" />Urządzenia Ps2
+                </th>
+              </tr>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Parametr</th>
+                <th scope="col">Wartość</th>
+              </tr>
+            </thead>
+            <tbody *ngFor="let ps2DeviceVm of parameter.ps2DeviceVm; let i = index">
+              <tr [ngClass]='{green: (ps2DeviceVm.description != lastAndChoosedParameters[0].ps2DeviceVm[i].description)
+                || (ps2DeviceVm.description != lastAndChoosedParameters[1].ps2DeviceVm[i].description)}'>
+                <th scope="row">1</th>
+                <td>Opis</td>
+                <td>{{ ps2DeviceVm.description }}</td>
+              </tr>
+              <tr [ngClass]='{green: (ps2DeviceVm.vendorId != lastAndChoosedParameters[0].ps2DeviceVm[i].vendorId)
+                || (ps2DeviceVm.vendorId != lastAndChoosedParameters[1].ps2DeviceVm[i].vendorId)}'>
+                <th scope="row">2</th>
+                <td>Id sprzedawcy</td>
+                <td>{{ ps2DeviceVm.vendorId }}</td>
+              </tr>
+              <tr [ngClass]='{green: (ps2DeviceVm.productId != lastAndChoosedParameters[0].ps2DeviceVm[i].productId)
+                || (ps2DeviceVm.productId != lastAndChoosedParameters[1].ps2DeviceVm[i].productId)}'>
+                <th scope="row">3</th>
+                <td>Id produktu</td>
+                <td>{{ ps2DeviceVm.productId }}</td>
+              </tr>
+              <tr [ngClass]='{green: (ps2DeviceVm.matchingDeviceId != lastAndChoosedParameters[0].ps2DeviceVm[i].matchingDeviceId)
+                || (ps2DeviceVm.matchingDeviceId != lastAndChoosedParameters[1].ps2DeviceVm[i].matchingDeviceId)}'>
+                <th scope="row">4</th>
+                <td>Pasujący identyfikator urządzenia</td>
+                <td>{{ ps2DeviceVm.matchingDeviceId }}</td>
+              </tr>
+            </tbody>
+          </table>
+      
+          <table class="table table-dark" *ngIf="checkedSound">
+            <thead>
+              <tr>
+                <th colspan="3" scope="colgroup" class="table-tittle">
+                  <img id="image-table" src="/assets/images/sound-device.png" />Dzwięk
+                </th>
+              </tr>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Parametr</th>
+                <th scope="col">Wartość</th>
+              </tr>
+            </thead>
+            <tbody *ngFor="let soundDeviceVm of parameter.soundDeviceVm; let i = index">
+              <tr [ngClass]='{green: (soundDeviceVm.description != lastAndChoosedParameters[0].soundDeviceVm[i].description)
+                || (soundDeviceVm.description != lastAndChoosedParameters[1].soundDeviceVm[i].description)}'>
+                <th scope="row">1</th>
+                <td>Opis</td>
+                <td>{{ soundDeviceVm.description }}</td>
+              </tr>
+              <tr [ngClass]='{green: (soundDeviceVm.hardwareId != lastAndChoosedParameters[0].soundDeviceVm[i].hardwareId)
+                || (soundDeviceVm.hardwareId != lastAndChoosedParameters[1].soundDeviceVm[i].hardwareId)}'>
+                <th scope="row">2</th>
+                <td>Id sprzętu</td>
+                <td>{{ soundDeviceVm.hardwareId }}</td>
+              </tr>
+              <tr [ngClass]='{green: (soundDeviceVm.manufacturerId != lastAndChoosedParameters[0].soundDeviceVm[i].manufacturerId)
+                || (soundDeviceVm.manufacturerId != lastAndChoosedParameters[1].soundDeviceVm[i].manufacturerId)}'>
+                <th scope="row">3</th>
+                <td>Id producenta</td>
+                <td>{{ soundDeviceVm.manufacturerId }}</td>
+              </tr>
+              <tr [ngClass]='{green: (soundDeviceVm.productId != lastAndChoosedParameters[0].soundDeviceVm[i].productId)
+                || (soundDeviceVm.productId != lastAndChoosedParameters[1].soundDeviceVm[i].productId)}'>
+                <th scope="row">4</th>
+                <td>Id produktu</td>
+                <td>{{ soundDeviceVm.productId }}</td>
+              </tr>
+              <tr [ngClass]='{green: (soundDeviceVm.type != lastAndChoosedParameters[0].soundDeviceVm[i].type)
+                || (soundDeviceVm.type != lastAndChoosedParameters[1].soundDeviceVm[i].type)}'>
+                <th scope="row">5</th>
+                <td>Typ</td>
+                <td>{{ soundDeviceVm.type }}</td>
+              </tr>
+              <tr [ngClass]='{green: (soundDeviceVm.driverName != lastAndChoosedParameters[0].soundDeviceVm[i].driverName)
+                || (soundDeviceVm.driverName != lastAndChoosedParameters[1].soundDeviceVm[i].driverName)}'>
+                <th scope="row">6</th>
+                <td>Nazwa sterownika</td>
+                <td>{{ soundDeviceVm.driverName }}</td>
+              </tr>
+              <tr [ngClass]='{green: (soundDeviceVm.driverVersion != lastAndChoosedParameters[0].soundDeviceVm[i].driverVersion)
+                || (soundDeviceVm.driverVersion != lastAndChoosedParameters[1].soundDeviceVm[i].driverVersion)}'>
+                <th scope="row">7</th>
+                <td>Wersja sterownika</td>
+                <td>{{ soundDeviceVm.driverVersion }}</td>
+              </tr>
+              <tr [ngClass]='{green: (soundDeviceVm.driverDate != lastAndChoosedParameters[0].soundDeviceVm[i].driverDate)
+                || (soundDeviceVm.driverDate != lastAndChoosedParameters[1].soundDeviceVm[i].driverDate)}'>
+                <th scope="row">8</th>
+                <td>Data sterownika</td>
+                <td>{{ soundDeviceVm.driverDate }}</td>
+              </tr>
+              <tr [ngClass]='{green: (soundDeviceVm.driverProvider != lastAndChoosedParameters[0].soundDeviceVm[i].driverProvider)
+                || (soundDeviceVm.driverProvider != lastAndChoosedParameters[1].soundDeviceVm[i].driverProvider)}'>
+                <th scope="row">9</th>
+                <td>Dostawca sterownika</td>
+                <td>{{ soundDeviceVm.driverProvider }}</td>
+              </tr>
+            </tbody>
+          </table>
+      
+          <table class="table table-dark" *ngIf="checkedSystemDevices">
+            <thead>
+              <tr>
+                <th colspan="3" scope="colgroup" class="table-tittle">
+                  <img
+                    id="image-table"
+                    src="/assets/images/system-devices.png"
+                  />Urządzenia systemowe
+                </th>
+              </tr>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Parametr</th>
+                <th scope="col">Wartość</th>
+              </tr>
+            </thead>
+            <tbody *ngFor="let systemDeviceVm of parameter.systemDeviceVm; let i = index">
+              <tr [ngClass]='{green: (systemDeviceVm.name != lastAndChoosedParameters[0].systemDeviceVm[i].name)
+                || (systemDeviceVm.name != lastAndChoosedParameters[1].systemDeviceVm[i].name)}'>
+                <th scope="row">1</th>
+                <td>Nazwa</td>
+                <td>{{ systemDeviceVm.name }}</td>
+              </tr>
+              <tr [ngClass]='{green: (systemDeviceVm.deviceKey != lastAndChoosedParameters[0].systemDeviceVm[i].deviceKey)
+                || (systemDeviceVm.deviceKey != lastAndChoosedParameters[1].systemDeviceVm[i].deviceKey)}'>
+                <th scope="row">2</th>
+                <td>Klucz urządzenia</td>
+                <td>{{ systemDeviceVm.deviceKey }}</td>
+              </tr>
+            </tbody>
+          </table>
+      
+          <table class="table table-dark" *ngIf="checkedUsbDevices">
+            <thead>
+              <tr>
+                <th colspan="3" scope="colgroup" class="table-tittle">
+                  <img id="image-table" src="/assets/images/usb.png" />Urządzenia USB
+                </th>
+              </tr>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Parametr</th>
+                <th scope="col">Wartość</th>
+              </tr>
+            </thead>
+            <tbody *ngFor="let usbDeviceVm of parameter.usbDeviceVm; let i = index">
+              <tr [ngClass]='{green: (usbDeviceVm.description != lastAndChoosedParameters[0].usbDeviceVm[i].description)
+                || (usbDeviceVm.description != lastAndChoosedParameters[1].usbDeviceVm[i].description)}'>
+                <th scope="row">1</th>
+                <td>Opis</td>
+                <td>{{ usbDeviceVm.description }}</td>
+              </tr>
+              <tr [ngClass]='{green: (usbDeviceVm.vendorId != lastAndChoosedParameters[0].usbDeviceVm[i].vendorId)
+                || (usbDeviceVm.vendorId != lastAndChoosedParameters[1].usbDeviceVm[i].vendorId)}'>
+                <th scope="row">2</th>
+                <td>Id sprzedawcy</td>
+                <td>{{ usbDeviceVm.vendorId }}</td>
+              </tr>
+              <tr [ngClass]='{green: (usbDeviceVm.productId != lastAndChoosedParameters[0].usbDeviceVm[i].productId)
+                || (usbDeviceVm.productId != lastAndChoosedParameters[1].usbDeviceVm[i].productId)}'>
+                <th scope="row">3</th>
+                <td>Id produktu</td>
+                <td>{{ usbDeviceVm.productId }}</td>
+              </tr>
+              <tr [ngClass]='{green: (usbDeviceVm.matchingDeviceId != lastAndChoosedParameters[0].usbDeviceVm[i].matchingDeviceId)
+                || (usbDeviceVm.matchingDeviceId != lastAndChoosedParameters[1].usbDeviceVm[i].matchingDeviceId)}'>
+                <th scope="row">4</th>
+                <td>Pasujący identyfikator urządzenia</td>
+                <td>{{ usbDeviceVm.matchingDeviceId }}</td>
+              </tr>
+            </tbody>
+          </table>
+      
+          <table class="table table-dark" *ngIf="checkedUsers">
+            <thead>
+              <tr>
+                <th colspan="3" scope="colgroup" class="table-tittle">
+                  <img id="image-table" src="/assets/images/users.png" />Użytkownik
+                </th>
+              </tr>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Parametr</th>
+                <th scope="col">Wartość</th>
+              </tr>
+            </thead>
+            <tbody *ngFor="let systemUserVm of parameter.systemUserVm; let i = index">
+              <tr [ngClass]='{green: (systemUserVm.caption != lastAndChoosedParameters[0].systemUserVm[i].caption)
+                || (systemUserVm.caption != lastAndChoosedParameters[1].systemUserVm[i].caption)}'>
+                <th scope="row">1</th>
+                <td>Podpis</td>
+                <td>{{ systemUserVm.caption }}</td>
+              </tr>
+              <tr [ngClass]='{green: (systemUserVm.description != lastAndChoosedParameters[0].systemUserVm[i].description)
+                || (systemUserVm.description != lastAndChoosedParameters[1].systemUserVm[i].description)}'>
+                <th scope="row">2</th>
+                <td>Opis</td>
+                <td>{{ systemUserVm.description }}</td>
+              </tr>
+              <tr [ngClass]='{green: (systemUserVm.disabled != lastAndChoosedParameters[0].systemUserVm[i].disabled)
+                || (systemUserVm.disabled != lastAndChoosedParameters[1].systemUserVm[i].disabled)}'>
+                <th scope="row">3</th>
+                <td>Wyłączony</td>
+                <td>{{ systemUserVm.disabled }}</td>
+              </tr>
+              <tr [ngClass]='{green: (systemUserVm.fullName != lastAndChoosedParameters[0].systemUserVm[i].fullName)
+                || (systemUserVm.fullName != lastAndChoosedParameters[1].systemUserVm[i].fullName)}'>
+                <th scope="row">4</th>
+                <td>Pełna nazwa</td>
+                <td>{{ systemUserVm.fullName }}</td>
+              </tr>
+              <tr [ngClass]='{green: (systemUserVm.localAccount != lastAndChoosedParameters[0].systemUserVm[i].localAccount)
+                || (systemUserVm.localAccount != lastAndChoosedParameters[1].systemUserVm[i].localAccount)}'>
+                <th scope="row">5</th>
+                <td>Konto lokalne</td>
+                <td>{{ systemUserVm.localAccount }}</td>
+              </tr>
+              <tr [ngClass]='{green: (systemUserVm.name != lastAndChoosedParameters[0].systemUserVm[i].name)
+                || (systemUserVm.name != lastAndChoosedParameters[1].systemUserVm[i].name)}'>
+                <th scope="row">6</th>
+                <td>Nazwa</td>
+                <td>{{ systemUserVm.name }}</td>
+              </tr>
+              <tr [ngClass]='{green: (systemUserVm.passwordChangeable != lastAndChoosedParameters[0].systemUserVm[i].passwordChangeable)
+                || (systemUserVm.passwordChangeable != lastAndChoosedParameters[1].systemUserVm[i].passwordChangeable)}'>
+                <th scope="row">7</th>
+                <td>Hasło zmienialne</td>
+                <td>{{ systemUserVm.passwordChangeable }}</td>
+              </tr>
+              <tr [ngClass]='{green: (systemUserVm.passwordExpires != lastAndChoosedParameters[0].systemUserVm[i].passwordExpires)
+                || (systemUserVm.passwordExpires != lastAndChoosedParameters[1].systemUserVm[i].passwordExpires)}'>
+                <th scope="row">8</th>
+                <td>Hasło wygasa</td>
+                <td>{{ systemUserVm.passwordExpires }}</td>
+              </tr>
+              <tr [ngClass]='{green: (systemUserVm.passwordExpires != lastAndChoosedParameters[0].systemUserVm[i].passwordExpires)
+                || (systemUserVm.passwordExpires != lastAndChoosedParameters[1].systemUserVm[i].passwordExpires)}'>
+                <th scope="row">9</th>
+                <td>Hasło wymagane</td>
+                <td>{{ systemUserVm.passwordExpires }}</td>
+              </tr>
+              <tr [ngClass]='{green: (systemUserVm.status != lastAndChoosedParameters[0].systemUserVm[i].status)
+                || (systemUserVm.status != lastAndChoosedParameters[1].systemUserVm[i].status)}'>
+                <th scope="row">10</th>
+                <td>Status</td>
+                <td>{{ systemUserVm.status }}</td>
+              </tr>
+            </tbody>
+          </table>
+      
+          <table class="table table-dark" *ngIf="checkedVideoDevices">
+            <thead>
+              <tr>
+                <th colspan="3" scope="colgroup" class="table-tittle">
+                  <img
+                    id="image-table"
+                    src="/assets/images/video-device.png"
+                  />Urządzenia wideo
+                </th>
+              </tr>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Parametr</th>
+                <th scope="col">Wartość</th>
+              </tr>
+            </thead>
+            <tbody *ngFor="let videoDeviceVm of parameter.videoDeviceVm; let i = index">
+              <tr [ngClass]='{green: (videoDeviceVm.name != lastAndChoosedParameters[0].videoDeviceVm[i].name)
+                || (videoDeviceVm.name != lastAndChoosedParameters[1].videoDeviceVm[i].name)}'>
+                <th scope="row">1</th>
+                <td>Nazwa</td>
+                <td>{{ videoDeviceVm.name }}</td>
+              </tr>
+              <tr [ngClass]='{green: (videoDeviceVm.category != lastAndChoosedParameters[0].videoDeviceVm[i].category)
+                || (videoDeviceVm.category != lastAndChoosedParameters[1].videoDeviceVm[i].category)}'>
+                <th scope="row">2</th>
+                <td>Kategoria</td>
+                <td>{{ videoDeviceVm.category }}</td>
+              </tr>
+              <tr [ngClass]='{green: (videoDeviceVm.manufacturer != lastAndChoosedParameters[0].videoDeviceVm[i].manufacturer)
+                || (videoDeviceVm.manufacturer != lastAndChoosedParameters[1].videoDeviceVm[i].manufacturer)}'>
+                <th scope="row">3</th>
+                <td>Producent</td>
+                <td>{{ videoDeviceVm.manufacturer }}</td>
+              </tr>
+              <tr [ngClass]='{green: (videoDeviceVm.driverDescription != lastAndChoosedParameters[0].videoDeviceVm[i].driverDescription)
+                || (videoDeviceVm.driverDescription != lastAndChoosedParameters[1].videoDeviceVm[i].driverDescription)}'>
+                <th scope="row">4</th>
+                <td>Opis sterownika</td>
+                <td>{{ videoDeviceVm.driverDescription }}</td>
+              </tr>
+              <tr [ngClass]='{green: (videoDeviceVm.driverProvider != lastAndChoosedParameters[0].videoDeviceVm[i].driverProvider)
+                || (videoDeviceVm.driverProvider != lastAndChoosedParameters[1].videoDeviceVm[i].driverProvider)}'>
+                <th scope="row">5</th>
+                <td>Dostawca sterownika</td>
+                <td>{{ videoDeviceVm.driverProvider }}</td>
+              </tr>
+              <tr [ngClass]='{green: (videoDeviceVm.driverVersion != lastAndChoosedParameters[0].videoDeviceVm[i].driverVersion)
+                || (videoDeviceVm.driverVersion != lastAndChoosedParameters[1].videoDeviceVm[i].driverVersion)}'>
+                <th scope="row">6</th>
+                <td>Wersja sterownika</td>
+                <td>{{ videoDeviceVm.driverVersion }}</td>
+              </tr>
+              <tr [ngClass]='{green: (videoDeviceVm.location != lastAndChoosedParameters[0].videoDeviceVm[i].location)
+                || (videoDeviceVm.location != lastAndChoosedParameters[1].videoDeviceVm[i].location)}'>
+                <th scope="row">7</th>
+                <td>Lokalizacja</td>
+                <td>{{ videoDeviceVm.location }}</td>
+              </tr>
+              <tr [ngClass]='{green: (videoDeviceVm.hardwareId != lastAndChoosedParameters[0].videoDeviceVm[i].hardwareId)
+                || (videoDeviceVm.hardwareId != lastAndChoosedParameters[1].videoDeviceVm[i].hardwareId)}'>
+                <th scope="row">8</th>
+                <td>Id sprzętu</td>
+                <td>{{ videoDeviceVm.hardwareId }}</td>
+              </tr>
+            </tbody>
+          </table>
+      
+          <table class="table table-dark" *ngIf="checkedInstalledApplication">
+            <thead>
+              <tr>
+                <th colspan="3" scope="colgroup" class="table-tittle">
+                  <img
+                    id="image-table"
+                    src="/assets/images/applications.png"
+                  />Zainstalowane aplikacje
+                </th>
+              </tr>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Parametr</th>
+                <th scope="col">Wartość</th>
+              </tr>
+            </thead>
+            <tbody
+              *ngFor="let installedApplicationVm of parameter.installedApplicationVm; let i = index"
+            >
+              <tr [ngClass]='{green: (installedApplicationVm.name != lastAndChoosedParameters[0].installedApplicationVm[i].name)
+                || (installedApplicationVm.name != lastAndChoosedParameters[1].installedApplicationVm[i].name)}'>
+                <th scope="row">1</th>
+                <td>Nazwa</td>
+                <td>{{ installedApplicationVm.name }}</td>
+              </tr>
+              <tr [ngClass]='{green: (installedApplicationVm.caption != lastAndChoosedParameters[0].installedApplicationVm[i].caption)
+                || (installedApplicationVm.caption != lastAndChoosedParameters[1].installedApplicationVm[i].caption)}'>
+                <th scope="row">2</th>
+                <td>Podpis</td>
+                <td>{{ installedApplicationVm.caption }}</td>
+              </tr>
+              <tr [ngClass]='{green: (installedApplicationVm.description != lastAndChoosedParameters[0].installedApplicationVm[i].description)
+                || (installedApplicationVm.description != lastAndChoosedParameters[1].installedApplicationVm[i].description)}'>
+                <th scope="row">3</th>
+                <td>Opis</td>
+                <td>{{ installedApplicationVm.description }}</td>
+              </tr>
+              <tr [ngClass]='{green: (installedApplicationVm.identifyingNumber != lastAndChoosedParameters[0].installedApplicationVm[i].identifyingNumber)
+                || (installedApplicationVm.identifyingNumber != lastAndChoosedParameters[1].installedApplicationVm[i].identifyingNumber)}'>
+                <th scope="row">4</th>
+                <td>Numer identyfikacyjny</td>
+                <td>{{ installedApplicationVm.identifyingNumber }}</td>
+              </tr>
+              <tr [ngClass]='{green: (installedApplicationVm.vendor != lastAndChoosedParameters[0].installedApplicationVm[i].vendor)
+                || (installedApplicationVm.vendor != lastAndChoosedParameters[1].installedApplicationVm[i].vendor)}'>
+                <th scope="row">5</th>
+                <td>Sprzedawca</td>
+                <td>{{ installedApplicationVm.vendor }}</td>
+             </tr>
+              <tr [ngClass]='{green: (installedApplicationVm.version != lastAndChoosedParameters[0].installedApplicationVm[i].version)
+                || (installedApplicationVm.version != lastAndChoosedParameters[1].installedApplicationVm[i].version)}'>
+                <th scope="row">6</th>
+                <td>Wersja</td>
+                <td>{{ installedApplicationVm.version }}</td>
+             </tr>   
+             <tr [ngClass]='{green: (installedApplicationVm.installDate != lastAndChoosedParameters[0].installedApplicationVm[i].installDate)
+              || (installedApplicationVm.installDate != lastAndChoosedParameters[1].installedApplicationVm[i].installDate)}'>         
+                <th scope="row">7</th>
+                <td>Data zainstalowania</td>
+                <td>{{ installedApplicationVm.installDate }}</td>
+              </tr>
+              <tr [ngClass]='{green: (installedApplicationVm.installSource != lastAndChoosedParameters[0].installedApplicationVm[i].installSource)
+                || (installedApplicationVm.installSource != lastAndChoosedParameters[1].installedApplicationVm[i].installSource)}'>
+                <th scope="row">8</th>
+                <td>Miejsce instalacji</td>
+                <td>{{ installedApplicationVm.installSource }}</td>
+              </tr>
+              <tr [ngClass]='{green: (installedApplicationVm.localPackages != lastAndChoosedParameters[0].installedApplicationVm[i].localPackages)
+                || (installedApplicationVm.localPackages != lastAndChoosedParameters[1].installedApplicationVm[i].localPackages)}'>
+                <th scope="row">9</th>
+                <td>Lokalne pakiety</td>
+                <td>{{ installedApplicationVm.localPackages }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      

@@ -18,6 +18,7 @@ export class WebStorageService {
     sessionStorage.setItem(key, JSON.stringify(data));
   }
 }
+
 export enum NetworkAddressesStorageKey {
   key = "network_addresses"
 }

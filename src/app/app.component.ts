@@ -1,6 +1,6 @@
-﻿import { FindComputerRestService } from './rest/FindComputerRestService';
+﻿import { FindComputerRestService } from '../app/http/rest/FindComputerRestService';
 import { Component } from '@angular/core';
-import { LoginRestService } from './rest/LoginRestService';
+import { LoginRestService } from '../app/http/rest/LoginRestService';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 
@@ -20,6 +20,7 @@ export class AppComponent {
     logout() {
         sessionStorage.setItem('token', '');
     }
+    
     isUserAvaliable() {
         const item = sessionStorage.getItem('token');
         if (item) {

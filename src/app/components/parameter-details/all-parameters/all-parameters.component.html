@@ -1,0 +1,1076 @@
+<div *ngFor="let parameter of allParameters; let i = index ">
+    <table class="table table-dark" >
+            <thead>
+              <tr>
+                <th colspan="3" scope="colgroup" class="table-tittle">
+                  <img id="image-table" src="/assets/images/operating-system.png" />System
+                  operacyjny
+                </th>
+              </tr>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Parametr</th>
+                <th scope="col">Wartość</th>
+              </tr>
+            </thead>
+            <tbody *ngFor="let operatingSystemVm of parameter.operatingSystemVm">
+              <tr>
+                <th scope="row">1</th>
+                <td>Czas</td>
+                <td>{{ operatingSystemVm.time }}</td>
+              </tr>
+              <tr>
+                <th scope="row">2</th>
+                <td>Nazwa maszyny</td>
+                <td>{{ operatingSystemVm.machineName }}</td>
+              </tr>
+              <tr>
+                <th scope="row">3</th>
+                <td>Id maszyny</td>
+                <td>{{ operatingSystemVm.machineId }}</td>
+              </tr>
+              <tr>
+                <th scope="row">4</th>
+                <td>System operacyjny</td>
+                <td>{{ operatingSystemVm.operatingSystem }}</td>
+              </tr>
+              <tr>
+                <th scope="row">5</th>
+                <td>Język</td>
+                <td>{{ operatingSystemVm.language }}</td>
+              </tr>
+              <tr>
+                <th scope="row">6</th>
+                <td>Producent systemu</td>
+                <td>{{ operatingSystemVm.systemManufacturer }}</td>
+              </tr>
+              <tr>
+                <th scope="row">7</th>
+                <td>Model komputera</td>
+                <td>{{ operatingSystemVm.systemModel }}</td>
+              </tr>
+              <tr>
+                <th scope="row">8</th>
+                <td>Bios</td>
+                <td>{{ operatingSystemVm.bios }}</td>
+              </tr>
+              <tr>
+                <th scope="row">9</th>
+                <td>Typ Firmware</td>
+                <td>{{ operatingSystemVm.firmWareType }}</td>
+              </tr>
+              <tr>
+                <th scope="row">10</th>
+                <td>Processor</td>
+                <td>{{ operatingSystemVm.processor }}</td>
+              </tr>
+              <tr>
+                <th scope="row">11</th>
+                <td>Pamięć</td>
+                <td>{{ operatingSystemVm.memory }}</td>
+              </tr>
+              <tr>
+                <th scope="row">12</th>
+                <td>Dostępna pamięc systemu</td>
+                <td>{{ operatingSystemVm.avaliableOsMemory }}</td>
+              </tr>
+              <tr>
+                <th scope="row">13</th>
+                <td>Plik strony</td>
+                <td>{{ operatingSystemVm.pageFile }}</td>
+              </tr>
+              <tr>
+                <th scope="row">14</th>
+                <td>Folder instalacji</td>
+                <td>{{ operatingSystemVm.windowsDir }}</td>
+              </tr>
+              <tr>
+                <th scope="row">15</th>
+                <td>Werscja directx</td>
+                <td>{{ operatingSystemVm.directXVersion }}</td>
+              </tr>
+              <tr>
+                <th scope="row">16</th>
+                <td>Ustawienia DPI użytkownika</td>
+                <td>{{ operatingSystemVm.userDpiSettings }}</td>
+              </tr>
+              <tr>
+                <th scope="row">17</th>
+                <td>Ustawienia DPI systemu</td>
+                <td>{{ operatingSystemVm.systemDpiSettings }}</td>
+              </tr>
+            </tbody>
+          </table>
+          <table class="table table-dark">
+                <thead>
+                  <tr>
+                    <th colspan="3" scope="colgroup" class="table-tittle">
+                      <img id="image-table" src="/assets/images/bios.png" /> Bios
+                    </th>
+                  </tr>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Parametr</th>
+                    <th scope="col">Wartość</th>
+                  </tr>
+                </thead>
+                <tbody *ngFor="let biosVm of parameter.biosVM">
+                  <tr>
+                    <th scope="row">1</th>
+                    <td>Wersja</td>
+                    <td>{{ biosVm.biosVersion }}</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">2</th>
+                    <td>Podpis</td>
+                    <td>{{ biosVm.caption }}</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">3</th>
+                    <td>Język</td>
+                    <td>{{ biosVm.currentLanguage }}</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">4</th>
+                    <td>Opis</td>
+                    <td>{{ biosVm.description }}</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">5</th>
+                    <td>Producent</td>
+                    <td>{{ biosVm.manufacturer }}</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">6</th>
+                    <td>Nazwa</td>
+                    <td>{{ biosVm.name }}</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">7</th>
+                    <td>Bios główny</td>
+                    <td>{{ biosVm.primaryBios }}</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">8</th>
+                    <td>Status</td>
+                    <td>{{ biosVm.status }}</td>
+                  </tr>
+                </tbody>
+              </table>
+              
+              <table class="table table-dark">
+                <thead>
+                  <tr>
+                    <th colspan="3" scope="colgroup" class="table-tittle">
+                      <img id="image-table" src="/assets/images/capture-device.png" />Urządzenia
+                      przechwytujące
+                    </th>
+                  </tr>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Parametr</th>
+                    <th scope="col">Wartość</th>
+                  </tr>
+                </thead>
+                <tbody  *ngFor="let captureDeviceVm of parameter.captureDeviceVm">
+                  <tr>
+                    <th scope="row">1</th>
+                    <td>Opis</td>
+                    <td>{{ captureDeviceVm.description }}</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">2</th>
+                    <td>Nazwa sterownika</td>
+                    <td>{{ captureDeviceVm.driverName }}</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">3</th>
+                    <td>Wersja sterownika</td>
+                    <td>{{ captureDeviceVm.driverVersion }}</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">4</th>
+                    <td>Data sterownika</td>
+                    <td>{{ captureDeviceVm.driverDate }}</td>
+                  </tr>
+                </tbody>
+              </table>
+              
+              <table class="table table-dark">
+                <thead>
+                  <tr>
+                    <th colspan="3" scope="colgroup" class="table-tittle">
+                      <img id="image-table" src="/assets/images/gpu.png" />Grafika
+                    </th>
+                  </tr>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Parametr</th>
+                    <th scope="col">Wartość</th>
+                  </tr>
+                </thead>
+                <tbody *ngFor="let displayDeviceVm of parameter.displayDeviceVm">
+                  <tr>
+                    <th scope="row">1</th>
+                    <td>Nazwa karty graficznej</td>
+                    <td>{{ displayDeviceVm.cardName }}</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">2</th>
+                    <td>Producent</td>
+                    <td>{{ displayDeviceVm.manufacturer }}</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">3</th>
+                    <td>Typ Czipu</td>
+                    <td>{{ displayDeviceVm.chipType }}</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">4</th>
+                    <td>Typ DAC</td>
+                    <td>{{ displayDeviceVm.dacType }}</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">5</th>
+                    <td>Typ urządzenia</td>
+                    <td>{{ displayDeviceVm.deviceType }}</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">6</th>
+                    <td>Klucz urządzenia</td>
+                    <td>{{ displayDeviceVm.deviceKey }}</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">7</th>
+                    <td>Pamięc wyświetlacza</td>
+                    <td>{{ displayDeviceVm.displayMemory }}</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">8</th>
+                    <td>Pamięć dedykowana</td>
+                    <td>{{ displayDeviceVm.dedicatedMemory }}</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">9</th>
+                    <td>Pamięc dzielona</td>
+                    <td>{{ displayDeviceVm.sharedMemory }}</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">10</th>
+                    <td>Obecny tryb</td>
+                    <td>{{ displayDeviceVm.currentMode }}</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">11</th>
+                    <td>Wsparcie HDR</td>
+                    <td>{{ displayDeviceVm.hdrSupport }}</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">12</th>
+                    <td>Nazwa sterownika</td>
+                    <td>{{ displayDeviceVm.driverName }}</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">13</th>
+                    <td>Wersja sterownika</td>
+                    <td>{{ displayDeviceVm.driverVersion }}</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">14</th>
+                    <td>Model sterownika</td>
+                    <td>{{ displayDeviceVm.driverModel }}</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">15</th>
+                    <td>Data sterownika</td>
+                    <td>{{ displayDeviceVm.driverDate }}</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">16</th>
+                    <td>Id sprzedawcy</td>
+                    <td>{{ displayDeviceVm.vendorId }}</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">17</th>
+                    <td>Id urządzenia</td>
+                    <td>{{ displayDeviceVm.deviceId }}</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">18</th>
+                    <td>Topologia</td>
+                    <td>{{ displayDeviceVm.topology }}</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">19</th>
+                    <td>Przestrzeń kolorów</td>
+                    <td>{{ displayDeviceVm.colorSpace }}</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">20</th>
+                    <td>Kolory podstawowe</td>
+                    <td>{{ displayDeviceVm.colorPrimaries }}</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">21</th>
+                    <td>Luminacja</td>
+                    <td>{{ displayDeviceVm.luminance }}</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">22</th>
+                    <td>Nazwa monitora</td>
+                    <td>{{ displayDeviceVm.monitorName }}</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">23</th>
+                    <td>Model monitora</td>
+                    <td>{{ displayDeviceVm.monitorModel }}</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">24</th>
+                    <td>Id monitora</td>
+                    <td>{{ displayDeviceVm.monitorId }}</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">25</th>
+                    <td>Typ wyjścia</td>
+                    <td>{{ displayDeviceVm.outputType }}</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">26</th>
+                    <td>Wlączone zaawansowanych kolrów</td>
+                    <td>{{ displayDeviceVm.advancedColorEnabled }}</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">27</th>
+                    <td>Wsparcie zaawansowanych kolorów</td>
+                    <td>{{ displayDeviceVm.advancedColorSupported }}</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">28</th>
+                    <td>Format pikseli</td>
+                    <td>{{ displayDeviceVm.pixelFormat }}</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">29</th>
+                    <td>Maksymalna rozdzielczość</td>
+                    <td>{{ displayDeviceVm.maxResolution }}</td>
+                  </tr>
+                </tbody>
+              </table>
+              
+              <table class="table table-dark">
+                <thead>
+                  <tr>
+                    <th colspan="3" scope="colgroup" class="table-tittle">
+                      <img id="image-table" src="/assets/images/hard-drive.png" />Dysk twardy
+                    </th>
+                  </tr>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Parametr</th>
+                    <th scope="col">Wartość</th>
+                  </tr>
+                </thead>
+                <tbody *ngFor="let hardDriveVm of parameter.hardDriveVm">
+                  <tr>
+                    <th scope="row">1</th>
+                    <td>Litera dysku</td>
+                    <td>{{ hardDriveVm.driveLetter }}</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">2</th>
+                    <td>Wole miejsce</td>
+                    <td>{{ hardDriveVm.freeSpace }} MB</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">3</th>
+                    <td>Pojemność dysku</td>
+                    <td>{{ hardDriveVm.maxSpace }} MB</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">4</th>
+                    <td>System plików</td>
+                    <td>{{ hardDriveVm.fileSystem }}</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">5</th>
+                    <td>Model</td>
+                    <td>{{ hardDriveVm.model }}</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">6</th>
+                    <td>Id PNP urządzenia</td>
+                    <td>{{ hardDriveVm.pnpDeviceId }}</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">7</th>
+                    <td>Index dysku twardego</td>
+                    <td>{{ hardDriveVm.hardDriveIndex }}</td>
+                  </tr>
+                </tbody>
+              </table>
+              
+              <table class="table table-dark">
+                <thead>
+                  <tr>
+                    <th colspan="3" scope="colgroup" class="table-tittle">
+                      <img id="image-table" src="/assets/images/input-devices.png" />Urządzenia
+                      wejścia
+                    </th>
+                  </tr>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Parametr</th>
+                    <th scope="col">Wartość</th>
+                  </tr>
+                </thead>
+                <tbody *ngFor="let directInputDeviceVm of parameter.directInputDeviceVm"> 
+                  <tr>
+                    <th scope="row">1</th>
+                    <td>Nazwa urządzenia</td>
+                    <td>{{ directInputDeviceVm.deviceName }}</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">2</th>
+                    <td>Podłączony</td>
+                    <td>{{ directInputDeviceVm.attached }}</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">3</th>
+                    <td>Id sprzedawcy</td>
+                    <td>{{ directInputDeviceVm.vendorId }}</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">4</th>
+                    <td>Id produktu</td>
+                    <td>{{ directInputDeviceVm.productId }}</td>
+                  </tr>
+                </tbody>
+              </table>
+              
+              
+              <table class="table table-dark">
+                <thead>
+                  <tr>
+                    <th colspan="3" scope="colgroup" class="table-tittle">
+                      <img id="image-table" src="/assets/images/ram.png" />Pamięć RAM
+                    </th>
+                  </tr>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Parametr</th>
+                    <th scope="col">Wartość</th>
+                  </tr>
+                </thead>
+                <tbody *ngFor="let internalMemoryVm of parameter.internalMemoryVm">
+                  <tr>
+                    <th scope="row">1</th>
+                    <td>Producent</td>
+                    <td>{{ internalMemoryVm.manufacturer }}</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">2</th>
+                    <td>Etykieta slotu</td>
+                    <td>{{ internalMemoryVm.bankLabel }}</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">3</th>
+                    <td>Numer seryjny</td>
+                    <td>{{ internalMemoryVm.serialNumber }}</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">4</th>
+                    <td>Podpis</td>
+                    <td>{{ internalMemoryVm.serialNumber }}</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">5</th>
+                    <td>Opis</td>
+                    <td>{{ internalMemoryVm.description }}</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">6</th>
+                    <td>Nazwa</td>
+                    <td>{{ internalMemoryVm.name }}</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">7</th>
+                    <td>Lokalizator urządzenia</td>
+                    <td>{{ internalMemoryVm.deviceLocator }}</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">8</th>
+                    <td>Pojemność</td>
+                    <td>{{ internalMemoryVm.capacity }} MB</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">9</th>
+                    <td>Typ pamięci</td>
+                    <td>{{ internalMemoryVm.memoryType }}</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">10</th>
+                    <td>Typ</td>
+                    <td>{{ internalMemoryVm.typeDetail }}</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">11</th>
+                    <td>Prędkość</td>
+                    <td>{{ internalMemoryVm.speed }} Mhz</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">12</th>
+                    <td>Status</td>
+                    <td>{{ internalMemoryVm.status }}</td>
+                  </tr>
+                </tbody>
+              </table>
+              
+              <table class="table table-dark">
+                <thead>
+                  <tr>
+                    <th colspan="3" scope="colgroup" class="table-tittle">
+                      <img id="image-table" src="/assets/images/network-card.png" />Karta sieciowa
+                    </th>
+                  </tr>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Parametr</th>
+                    <th scope="col">Wartość</th>
+                  </tr>
+                </thead>
+                <tbody  *ngFor="let networkCardVms of parameter.networkCardVms">
+                  <tr>
+                    <th scope="row">1</th>
+                    <td>Typ adaptera</td>
+                    <td>{{ networkCardVms.adapterType }}</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">2</th>
+                    <td>Nazwa</td>
+                    <td>{{ networkCardVms.name }}</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">3</th>
+                    <td>Opis</td>
+                    <td>{{ networkCardVms.description }}</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">4</th>
+                    <td>Podpis</td>
+                    <td>{{ networkCardVms.caption }}</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">5</th>
+                    <td>Zainstalowane</td>
+                    <td>{{ networkCardVms.installed }}</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">6</th>
+                    <td>Data instalacji</td>
+                    <td>{{ networkCardVms.installDate }}</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">7</th>
+                    <td>Producent</td>
+                    <td>{{ networkCardVms.manufacturer }}</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">8</th>
+                    <td>Id PNP urządzenia</td>
+                    <td>{{ networkCardVms.pnpDeviceId }}</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">9</th>
+                    <td>Adres MAC</td>
+                    <td>{{ networkCardVms.macAddress }}</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">10</th>
+                    <td>Ostatni status błędu</td>
+                    <td>{{ networkCardVms.lastErrorCode }}</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">11</th>
+                    <td>Maksymalna prędkość</td>
+                    <td>{{ networkCardVms.maxSpeed }}</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">12</th>
+                    <td>Obsługiwanie zarządzania energią</td>
+                    <td>{{ networkCardVms.powerManagementSupported }}</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">13</th>
+                    <td>Prędkość</td>
+                    <td>{{ networkCardVms.speed }}</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">14</th>
+                    <td>Status</td>
+                    <td>{{ networkCardVms.status }}</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">15</th>
+                    <td>Włączona sieć</td>
+                    <td>{{ networkCardVms.netEnabled }}</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">16</th>
+                    <td>Status połączenia sieci</td>
+                    <td>{{ networkCardVms.netConnectionStatus }}</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">17</th>
+                    <td>Adres sieci</td>
+                    <td>{{ networkCardVms.networkAddresses }}</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">18</th>
+                    <td>Adres stały</td>
+                    <td>{{ networkCardVms.permanentAddress }}</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">19</th>
+                    <td>Nazwa produktu</td>
+                    <td>{{ networkCardVms.productName }}</td>
+                  </tr>
+                </tbody>
+              </table>
+              
+              <table class="table table-dark">
+                <thead>
+                  <tr>
+                    <th colspan="3" scope="colgroup" class="table-tittle">
+                      <img id="image-table" src="/assets/images/cpu.png" />Procesor
+                    </th>
+                  </tr>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Parametr</th>
+                    <th scope="col">Wartość</th>
+                  </tr>
+                </thead>
+                <tbody *ngFor="let processorVm of parameter.processorVm">
+                  <tr>
+                    <th scope="row">1</th>
+                    <td>Szybkość zegara</td>
+                    <td>{{ processorVm.currentClockSpeed }} Mhz</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">2</th>
+                    <td>Opis</td>
+                    <td>{{ processorVm.description }}</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">3</th>
+                    <td>Rozmiar pamięci l2</td>
+                    <td>{{ processorVm.l2CacheSize }} MB</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">4</th>
+                    <td>Szybkość pamięci l2</td>
+                    <td>{{ processorVm.l2CacheSpeed }} Mhz</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">5</th>
+                    <td>Rozmiar pamięci l3</td>
+                    <td>{{ processorVm.l3CacheSize }} MB</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">6</th>
+                    <td>Szybkość pamięci l3</td>
+                    <td>{{ processorVm.l3CacheSpeed }} Mhz</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">7</th>
+                    <td>Producent</td>
+                    <td>{{ processorVm.manufacturer }}</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">8</th>
+                    <td>Maksymalna prędkość zegara</td>
+                    <td>{{ processorVm.maxClockSpeed }} Mhz</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">9</th>
+                    <td>Nazwa</td>
+                    <td>{{ processorVm.name }}</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">10</th>
+                    <td>Ilość rdzeni</td>
+                    <td>{{ processorVm.numberOfCores }}</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">11</th>
+                    <td>Ilość dostępnych rdzeni</td>
+                    <td>{{ processorVm.numberOfEnabledCores }}</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">12</th>
+                    <td>Ilość procesorów logicznych</td>
+                    <td>{{ processorVm.numberOfLogicalProcessors }}</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">13</th>
+                    <td>Status</td>
+                    <td>{{ processorVm.status }}</td>
+                  </tr>
+                </tbody>
+              </table>
+              
+              <table class="table table-dark">
+                <thead>
+                  <tr>
+                    <th colspan="3" scope="colgroup" class="table-tittle">
+                      <img id="image-table" src="/assets/images/ps2.png" />Urządzenia Ps2
+                    </th>
+                  </tr>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Parametr</th>
+                    <th scope="col">Wartość</th>
+                  </tr>
+                </thead>
+                <tbody *ngFor="let ps2DeviceVm of parameter.ps2DeviceVm">
+                  <tr>
+                    <th scope="row">1</th>
+                    <td>Opis</td>
+                    <td>{{ ps2DeviceVm.description }}</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">2</th>
+                    <td>Id sprzedawcy</td>
+                    <td>{{ ps2DeviceVm.vendorId }}</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">3</th>
+                    <td>Id produktu</td>
+                    <td>{{ ps2DeviceVm.productId }}</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">4</th>
+                    <td>Pasujący identyfikator urządzenia</td>
+                    <td>{{ ps2DeviceVm.matchingDeviceId }}</td>
+                  </tr>
+                </tbody>
+              </table>
+              
+              <table class="table table-dark" >
+                <thead>
+                  <tr>
+                    <th colspan="3" scope="colgroup" class="table-tittle">
+                      <img id="image-table" src="/assets/images/sound-device.png" />Dzwięk
+                    </th>
+                  </tr>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Parametr</th>
+                    <th scope="col">Wartość</th>
+                  </tr>
+                </thead>
+                <tbody *ngFor="let soundDeviceVm of parameter.soundDeviceVm">
+                  <tr>
+                    <th scope="row">1</th>
+                    <td>Opis</td>
+                    <td>{{ soundDeviceVm.description }}</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">2</th>
+                    <td>Id sprzętu</td>
+                    <td>{{ soundDeviceVm.hardwareId }}</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">3</th>
+                    <td>Id producenta</td>
+                    <td>{{ soundDeviceVm.manufacturerId }}</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">4</th>
+                    <td>Id produktu</td>
+                    <td>{{ soundDeviceVm.productId }}</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">5</th>
+                    <td>Typ</td>
+                    <td>{{ soundDeviceVm.type }}</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">6</th>
+                    <td>Nazwa sterownika</td>
+                    <td>{{ soundDeviceVm.driverName }}</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">7</th>
+                    <td>Wersja sterownika</td>
+                    <td>{{ soundDeviceVm.driverVersion }}</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">8</th>
+                    <td>Data sterownika</td>
+                    <td>{{ soundDeviceVm.driverDate }}</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">9</th>
+                    <td>Dostawca sterownika</td>
+                    <td>{{ soundDeviceVm.driverProvider }}</td>
+                  </tr>
+                </tbody>
+              </table>
+              
+              <table class="table table-dark">
+                <thead>
+                  <tr>
+                    <th colspan="3" scope="colgroup" class="table-tittle">
+                      <img id="image-table" src="/assets/images/system-devices.png" />Urządzenia
+                      systemowe
+                    </th>
+                  </tr>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Parametr</th>
+                    <th scope="col">Wartość</th>
+                  </tr>
+                </thead>
+                <tbody *ngFor="let systemDeviceVm of parameter.systemDeviceVm">
+                  <tr>
+                    <th scope="row">1</th>
+                    <td>Nazwa</td>
+                    <td>{{ systemDeviceVm.name }}</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">2</th>
+                    <td>Klucz urządzenia</td>
+                    <td>{{ systemDeviceVm.deviceKey }}</td>
+                  </tr>
+                </tbody>
+              </table>
+              
+              <table class="table table-dark">
+                <thead>
+                  <tr>
+                    <th colspan="3" scope="colgroup" class="table-tittle">
+                      <img id="image-table" src="/assets/images/usb.png" />Urządzenia USB
+                    </th>
+                  </tr>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Parametr</th>
+                    <th scope="col">Wartość</th>
+                  </tr>
+                </thead>
+                <tbody *ngFor="let usbDeviceVm of parameter.usbDeviceVm">
+                  <tr>
+                    <th scope="row">1</th>
+                    <td>Opis</td>
+                    <td>{{ usbDeviceVm.description }}</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">2</th>
+                    <td>Id sprzedawcy</td>
+                    <td>{{ usbDeviceVm.vendorId }}</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">3</th>
+                    <td>Id produktu</td>
+                    <td>{{ usbDeviceVm.productId }}</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">4</th>
+                    <td>Pasujący identyfikator urządzenia</td>
+                    <td>{{ usbDeviceVm.matchingDeviceId }}</td>
+                  </tr>
+                </tbody>
+              </table>
+              
+              <table class="table table-dark">
+                <thead>
+                  <tr>
+                    <th colspan="3" scope="colgroup" class="table-tittle">
+                      <img id="image-table" src="/assets/images/users.png" />Użytkownik
+                    </th>
+                  </tr>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Parametr</th>
+                    <th scope="col">Wartość</th>
+                  </tr>
+                </thead>
+                <tbody *ngFor="let systemUserVm of parameter.systemUserVm">
+                  <tr>
+                    <th scope="row">1</th>
+                    <td>Podpis</td>
+                    <td>{{ systemUserVm.caption }}</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">2</th>
+                    <td>Opis</td>
+                    <td>{{ systemUserVm.description }}</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">3</th>
+                    <td>Wyłączony</td>
+                    <td>{{ systemUserVm.disabled }}</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">4</th>
+                    <td>Pełna nazwa</td>
+                    <td>{{ systemUserVm.fullName }}</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">5</th>
+                    <td>Konto lokalne</td>
+                    <td>{{ systemUserVm.localAccount }}</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">6</th>
+                    <td>Nazwa</td>
+                    <td>{{ systemUserVm.name }}</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">7</th>
+                    <td>Hasło zmienialne</td>
+                    <td>{{ systemUserVm.passwordChangeable }}</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">8</th>
+                    <td>Hasło wygasa</td>
+                    <td>{{ systemUserVm.passwordExpires }}</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">9</th>
+                    <td>Hasło wymagane</td>
+                    <td>{{ systemUserVm.passwordExpires }}</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">10</th>
+                    <td>Status</td>
+                    <td>{{ systemUserVm.status }}</td>
+                  </tr>
+                </tbody>
+              </table>
+              
+              <table
+                class="table table-dark"
+              >
+                <thead>
+                  <tr>
+                    <th colspan="3" scope="colgroup" class="table-tittle">
+                      <img id="image-table" src="/assets/images/video-device.png" />Urządzenia wideo
+                    </th>
+                  </tr>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Parametr</th>
+                    <th scope="col">Wartość</th>
+                  </tr>
+                </thead>
+                <tbody *ngFor="let videoDeviceVm of parameter.videoDeviceVm">
+                  <tr>
+                    <th scope="row">1</th>
+                    <td>Nazwa</td>
+                    <td>{{ videoDeviceVm.name }}</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">2</th>
+                    <td>Kategoria</td>
+                    <td>{{ videoDeviceVm.category }}</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">3</th>
+                    <td>Producent</td>
+                    <td>{{ videoDeviceVm.manufacturer }}</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">4</th>
+                    <td>Opis sterownika</td>
+                    <td>{{ videoDeviceVm.driverDescription }}</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">5</th>
+                    <td>Dostawca sterownika</td>
+                    <td>{{ videoDeviceVm.driverProvider }}</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">6</th>
+                    <td>Wersja sterownika</td>
+                    <td>{{ videoDeviceVm.driverVersion }}</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">7</th>
+                    <td>Lokalizacja</td>
+                    <td>{{ videoDeviceVm.location }}</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">8</th>
+                    <td>Id sprzętu</td>
+                    <td>{{ videoDeviceVm.hardwareId }}</td>
+                  </tr>
+                </tbody>
+                </table>
+            
+    <table class="table table-dark">
+            <thead>
+              <tr>
+                <th colspan="3" scope="colgroup" class="table-tittle">
+                  <img id="image-table" src="/assets/images/applications.png" />Zainstalowane
+                  aplikacje
+                </th>
+              </tr>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Parametr</th>
+                <th scope="col">Wartość</th>
+              </tr>
+            </thead>
+            <tbody *ngFor="let installedApplicationVm of parameter.installedApplicationVm">
+              <tr scope="row">
+                <th>1</th>
+                <td>Nazwa</td>
+                <td>{{ installedApplicationVm.name }}</td>
+              </tr>
+              <tr scope="row">
+                <th>2</th>
+                <td>Podpis</td>
+                <td>{{ installedApplicationVm.caption }}</td>
+              </tr>
+              <tr scope="row">
+                <th>3</th>
+                <td>Opis</td>
+                <td>{{ installedApplicationVm.description }}</td>
+              </tr>
+              <tr scope="row">
+                <th>4</th>
+                <td>Numer identyfikacyjny</td>
+                <td>{{ installedApplicationVm.identifyingNumber }}</td>
+              </tr>
+              <tr scope="row">
+                <th scope="row">5</th>
+                <td>Sprzedawca</td>
+                <td>{{ installedApplicationVm.vendor }}</td>
+              </tr>
+              <tr>
+                <th scope="row">6</th>
+                <td>Wersja</td>
+                <td>{{ installedApplicationVm.version }}</td>
+              </tr>
+              <tr>
+                <th scope="row">7</th>
+                <td>Data zainstalowania</td>
+                <td>{{ installedApplicationVm.installDate }}</td>
+              </tr>
+              <tr>
+                <th scope="row">8</th>
+                <td>Miejsce instalacji</td>
+                <td>{{ installedApplicationVm.installSource }}</td>
+              </tr>
+              <tr>
+                <th scope="row">9</th>
+                <td>Lokalne pakiety</td>
+                <td>{{ installedApplicationVm.localPackages }}</td>
+              </tr>
+            </tbody>
+          </table>
+          
+        </div>

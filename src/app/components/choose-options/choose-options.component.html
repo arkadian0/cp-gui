@@ -1,0 +1,55 @@
+<p id="title">Wybierz opcję dla komputera {{computerName}} ({{ipAddress}})</p>
+<div class="flex-container">
+
+
+  <div id="computer-detail" (click)="displaySpecificParameters()">
+    <div id="computer-image">
+      <img id="image" src="/assets/images/choose-parameter.png" />
+    </div>
+    <div class="computer-addressess">
+      <span class="computers-info">Wyświetl parametry</span><br />
+    </div>
+  </div>
+
+  <div id="computer-detail" (click)="displayHistoryOfParameters()"> 
+    <div id="computer-image">
+      <img id="image" src="/assets/images/history.png" />
+    </div>
+    <div class="computer-addressess">
+      <span class="computers-info">Historia parametrów</span><br />
+    </div>
+  </div>
+
+  <div id="computer-detail" (click)="displayCompareComputers()">
+    <div id="computer-image">
+      <img id="image" src="/assets/images/weight-balance.png" />
+    </div>
+    <div class="computer-addressess">
+      <span class="computers-info">Porównaj komputer</span><br />
+    </div>
+  </div>
+
+  <div id="computer-detail" (click)="showGeneratePanel()">
+      <div id="computer-image">
+        <img id="image" src="/assets/images/generate.png" />
+      </div>
+      <div class="computer-addressess">
+        <span class="computers-info">Wymuś generowanie ręczne</span><br />
+      </div>
+      <div class="generate-parameters" *ngIf="isShowGeneratePanel">
+        <button (click)="generateComputerParameters()" type="button" class="btn btn-dark btn-generate" *ngIf='!isLoading && !isOperationEnding'>
+          Generuj
+        </button>
+      <div class="spinner-border text-primary spinner-position" *ngIf='isLoading'></div> 
+      <p class="processing-generate" *ngIf="isLoading">Trwa generowanie</p>
+      <p class="correct-text" *ngIf="isOperationEnding && isGeneratedParameters">Wygenerowano parametry</p>
+      <p class="incorrect-text" *ngIf="isOperationEnding && !isGeneratedParameters">Błąd podczas generowania</p>
+      <button (click)="closeWindow($event)" type="button" class="btn btn-dark btn-close-window" *ngIf='isOperationEnding'>
+        Zamknij
+      </button>
+    </div>
+    </div>
+</div>
+
+
+
